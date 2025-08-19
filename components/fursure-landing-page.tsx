@@ -285,8 +285,8 @@ export default function SalvatoreShoeRepairPage() {
         )}
       </header>
 
-      {/* Add padding to main content to account for fixed header */}
-      <main className="flex-1 pt-20">
+      {/* Main content without padding to show hero image directly under header */}
+      <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 relative bg-gradient-to-br from-amber-50 via-white to-amber-50/30">
           <div className="absolute inset-0 z-0">
