@@ -5,9 +5,81 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone } from "lucide-react"
+import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
+
+// Componente para mostrar el estado actual de la tienda
+function StoreStatus() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [currentTime, setCurrentTime] = useState('')
+
+  useEffect(() => {
+    const updateStatus = () => {
+      const now = new Date()
+      const currentHour = now.getHours()
+      const currentMinute = now.getMinutes()
+      const dayOfWeek = now.getDay() // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+      const currentTimeInMinutes = currentHour * 60 + currentMinute
+      
+      // Formatear hora actual
+      setCurrentTime(now.toLocaleTimeString('es-ES', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: false 
+      }))
+      
+      let storeIsOpen = false
+      
+      if (dayOfWeek === 0) {
+        // Domingo - Cerrado
+        storeIsOpen = false
+      } else if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+        // Lunes a Viernes: 9:00-14:00 y 17:00-19:30
+        const morningStart = 9 * 60 // 9:00
+        const morningEnd = 14 * 60 // 14:00
+        const afternoonStart = 17 * 60 // 17:00
+        const afternoonEnd = 19 * 60 + 30 // 19:30
+        
+        storeIsOpen = (currentTimeInMinutes >= morningStart && currentTimeInMinutes < morningEnd) ||
+                     (currentTimeInMinutes >= afternoonStart && currentTimeInMinutes < afternoonEnd)
+      } else if (dayOfWeek === 6) {
+        // Sábado: 10:30-13:30
+        const saturdayStart = 10 * 60 + 30 // 10:30
+        const saturdayEnd = 13 * 60 + 30 // 13:30
+        
+        storeIsOpen = currentTimeInMinutes >= saturdayStart && currentTimeInMinutes < saturdayEnd
+      }
+      
+      setIsOpen(storeIsOpen)
+    }
+    
+    // Actualizar inmediatamente
+    updateStatus()
+    
+    // Actualizar cada minuto
+    const interval = setInterval(updateStatus, 60000)
+    
+    return () => clearInterval(interval)
+  }, [])
+  
+  return (
+    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
+      isOpen 
+        ? 'bg-green-100 text-green-800 border border-green-200' 
+        : 'bg-red-100 text-red-800 border border-red-200'
+    }`}>
+      <Clock className="h-4 w-4" />
+      <span className="font-semibold">{currentTime}</span>
+      <span className="mx-1">•</span>
+      <span className={`font-bold ${
+        isOpen ? 'text-green-700' : 'text-red-700'
+      }`}>
+        {isOpen ? 'ABIERTO' : 'CERRADO'}
+      </span>
+    </div>
+  )
+}
 
 mapboxgl.accessToken = "pk.eyJ1IjoiNDIwYnRjIiwiYSI6ImNtOTN3ejBhdzByNjgycHF6dnVmeHl2ZTUifQ.Utq_q5wN6DHwpkn6rcpZdw"
 
@@ -151,8 +223,18 @@ export default function SalvatoreShoeRepairPage() {
       {/* Add padding to main content to account for fixed header */}
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-amber-50 via-white to-amber-50/30">
-          <div className="container px-4 md:px-6 text-center">
+        <section className="w-full py-12 md:py-24 lg:py-32 relative bg-gradient-to-br from-amber-50 via-white to-amber-50/30">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/herop.png"
+              alt="Hero background"
+              fill
+              className="object-cover opacity-60"
+              priority
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/40 via-white/60 to-amber-50/30 z-10"></div>
+          <div className="container px-4 md:px-6 text-center relative z-20">
             <div className="max-w-3xl mx-auto space-y-6">
               <div className="inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4">
                 ✨ Más de 30 años reparando calzado en Torremolinos
@@ -171,7 +253,7 @@ export default function SalvatoreShoeRepairPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-amber-200 text-amber-700 hover:bg-amber-50 px-8 py-3 bg-transparent"
+                  className="border-amber-200 text-amber-700 hover:bg-amber-50 px-8 py-3 bg-transparent shadow-lg"
                 >
                   Ver Ubicación
                 </Button>
@@ -241,6 +323,11 @@ export default function SalvatoreShoeRepairPage() {
               </div>
               <div className="text-center mt-4 p-4 bg-red-50 rounded-lg">
                 <p className="text-red-700 font-medium">Domingos: Cerrado</p>
+              </div>
+              
+              {/* Estado Actual de la Tienda */}
+              <div className="text-center mt-6">
+                <StoreStatus />
               </div>
             </div>
           </div>
