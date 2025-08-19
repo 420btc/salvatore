@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home } from "lucide-react"
+import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 
@@ -26,6 +26,7 @@ function StoreStatus() {
       setCurrentTime(now.toLocaleTimeString('es-ES', { 
         hour: '2-digit', 
         minute: '2-digit',
+        second: '2-digit',
         hour12: false 
       }))
       
@@ -57,8 +58,8 @@ function StoreStatus() {
     // Actualizar inmediatamente
     updateStatus()
     
-    // Actualizar cada minuto
-    const interval = setInterval(updateStatus, 60000)
+    // Actualizar cada segundo para mostrar reloj en tiempo real
+    const interval = setInterval(updateStatus, 1000)
     
     return () => clearInterval(interval)
   }, [])
@@ -88,6 +89,7 @@ export default function SalvatoreShoeRepairPage() {
   const map = useRef<any>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mapVisible, setMapVisible] = useState(true)
 
   useEffect(() => {
     // Load Mapbox GL JS
@@ -299,7 +301,7 @@ export default function SalvatoreShoeRepairPage() {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/40 via-white/60 to-amber-50/30 z-10"></div>
-          <div className="container px-4 md:px-6 text-center relative z-20">
+          <div className={`container px-4 md:px-6 text-center relative z-20 ${!mapVisible ? 'pt-20' : ''}`}>
             <div className="max-w-3xl mx-auto space-y-6">
               <div className="inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4 shadow-lg">
                 ✨ Más de 30 años reparando calzado en Torremolinos
@@ -335,19 +337,29 @@ export default function SalvatoreShoeRepairPage() {
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16">
-              <div className="mx-auto rounded-xl shadow-2xl border border-gray-200 overflow-hidden bg-gray-100">
-                <div ref={mapContainer} className="w-full h-[400px] md:h-[500px]" style={{ minHeight: "400px" }} />
-                {!mapLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                    <div className="text-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto mb-2"></div>
-                      <p className="text-gray-600 text-sm">Cargando ubicación...</p>
+            {mapVisible && (
+              <div className="mt-12 md:mt-16">
+                <div className="mx-auto rounded-xl shadow-2xl border border-gray-200 overflow-hidden bg-gray-100 relative">
+                  {/* Botón para ocultar mapa */}
+                  <button
+                    onClick={() => setMapVisible(false)}
+                    className="absolute top-2 right-2 z-30 bg-amber-600 hover:bg-amber-700 rounded-full p-1 md:p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                    title="Ocultar mapa"
+                  >
+                    <X className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                  </button>
+                  <div ref={mapContainer} className="w-full h-[400px] md:h-[500px]" style={{ minHeight: "400px" }} />
+                  {!mapLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                      <div className="text-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto mb-2"></div>
+                        <p className="text-gray-600 text-sm">Cargando ubicación...</p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
 
@@ -719,7 +731,7 @@ export default function SalvatoreShoeRepairPage() {
             </Accordion>
           </div>
         </section>
-      </main>
+        </main>
 
       {/* Footer */}
       <footer
