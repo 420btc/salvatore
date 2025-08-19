@@ -177,7 +177,13 @@ export default function SalvatoreShoeRepairPage() {
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-5xl px-4">
         <div className="bg-white rounded-full shadow-xl border border-gray-100 px-6 py-3 flex items-center justify-between">
           <Link href="#" className="flex items-center justify-center" prefetch={false}>
-            <Wrench className="h-6 w-6 text-amber-600" />
+            <Image
+              src="/salvatore.png"
+              alt="Salvatore Logo"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+            />
             <span className="ml-2 text-xl font-bold text-gray-900 font-serif">Salvatore</span>
           </Link>
           <nav className="hidden lg:flex gap-6 items-center">
@@ -718,14 +724,14 @@ export default function SalvatoreShoeRepairPage() {
       {/* Footer */}
       <footer
         id="contacto"
-        className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden"
+        className="bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100 text-gray-800 relative overflow-hidden"
       >
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
               <pattern id="footerGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" strokeWidth="0.3" />
+                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#d97706" strokeWidth="0.3" />
               </pattern>
             </defs>
             <rect width="100" height="100" fill="url(#footerGrid)" />
@@ -733,9 +739,9 @@ export default function SalvatoreShoeRepairPage() {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-16 h-16 bg-primary-400 rounded-full blur-xl"></div>
-          <div className="absolute bottom-20 left-10 w-12 h-12 bg-primary-300 rounded-full blur-lg"></div>
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute top-10 right-20 w-16 h-16 bg-amber-200 rounded-full blur-xl"></div>
+          <div className="absolute bottom-20 left-10 w-12 h-12 bg-yellow-200 rounded-full blur-lg"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
@@ -744,13 +750,19 @@ export default function SalvatoreShoeRepairPage() {
             {/* Brand Section */}
             <div className="md:col-span-1">
               <div className="flex items-center mb-4">
-                <Wrench className="h-8 w-8 text-amber-400" />
-                <span className="ml-2 text-2xl font-bold">Salvatore</span>
+                <Image
+                  src="/salvatore.png"
+                  alt="Salvatore Logo"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12"
+                />
+                <span className="ml-2 text-2xl font-bold text-gray-800">Salvatore</span>
               </div>
-              <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Taller especializado en reparación de calzado con más de 30 años de experiencia en Torremolinos.
               </p>
-              <div className="space-y-2 text-sm text-gray-300">
+              <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
                   <span>952 37 46 10</span>
@@ -768,25 +780,25 @@ export default function SalvatoreShoeRepairPage() {
 
             {/* Services Links */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Servicios</h3>
+              <h3 className="text-gray-800 font-semibold mb-4">Servicios</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="#servicios" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Reparación de Suelas
                   </Link>
                 </li>
                 <li>
-                  <Link href="#servicios" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Cambio de Tacones
                   </Link>
                 </li>
                 <li>
-                  <Link href="#servicios" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Restauración de Cuero
                   </Link>
                 </li>
                 <li>
-                  <Link href="#servicios" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Limpieza y Nutrición
                   </Link>
                 </li>
@@ -795,25 +807,25 @@ export default function SalvatoreShoeRepairPage() {
 
             {/* Info Links */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Información</h3>
+              <h3 className="text-gray-800 font-semibold mb-4">Información</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="#precios" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#precios" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Precios
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Horarios
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Ubicación
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors">
+                  <Link href="#" className="text-gray-600 hover:text-amber-600 transition-colors">
                     Contacto
                   </Link>
                 </li>
@@ -822,8 +834,8 @@ export default function SalvatoreShoeRepairPage() {
 
             {/* Schedule */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Horarios</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <h3 className="text-gray-800 font-semibold mb-4">Horarios</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
                 <li>
                   <div className="font-medium">Lun - Vie</div>
                   <div>9:00-14:00 / 17:00-19:30</div>
@@ -834,20 +846,20 @@ export default function SalvatoreShoeRepairPage() {
                 </li>
                 <li>
                   <div className="font-medium">Domingo</div>
-                  <div className="text-red-400">Cerrado</div>
+                  <div className="text-red-600">Cerrado</div>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+          <div className="border-t border-amber-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm">
               &copy; {new Date().getFullYear()} Salvatore Shoes Repair. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
-              <span className="text-gray-400">Torremolinos, Málaga</span>
-              <span className="text-gray-400">Calidad desde 1990</span>
+              <span className="text-gray-500">Torremolinos, Málaga</span>
+              <span className="text-gray-500">Calidad desde 1990</span>
             </div>
           </div>
         </div>
