@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock } from "lucide-react"
+import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 
@@ -87,6 +87,7 @@ export default function SalvatoreShoeRepairPage() {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<any>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     // Load Mapbox GL JS
@@ -177,7 +178,7 @@ export default function SalvatoreShoeRepairPage() {
         <div className="bg-white rounded-full shadow-xl border border-gray-100 px-6 py-3 flex items-center justify-between">
           <Link href="#" className="flex items-center justify-center" prefetch={false}>
             <Wrench className="h-6 w-6 text-amber-600" />
-            <span className="ml-2 text-xl font-bold text-gray-900">Salvatore</span>
+            <span className="ml-2 text-xl font-bold text-gray-900 font-serif">Salvatore</span>
           </Link>
           <nav className="hidden lg:flex gap-6 items-center">
             <Link
@@ -202,7 +203,7 @@ export default function SalvatoreShoeRepairPage() {
               Contacto
             </Link>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Button
               variant="ghost"
               className="text-sm bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-4 py-2 font-medium border border-amber-200"
@@ -213,11 +214,69 @@ export default function SalvatoreShoeRepairPage() {
               Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-          <Button variant="ghost" className="lg:hidden">
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle menu</span>
-          </Button>
+          <div className="lg:hidden flex items-center gap-1">
+             <Button 
+               variant="ghost" 
+               className="p-2"
+               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+             >
+               <Home className="h-10 w-10 text-amber-600" />
+               <span className="sr-only">Home</span>
+             </Button>
+             <Button 
+               variant="ghost" 
+               className="p-2"
+               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+             >
+               <Menu className="h-12 w-12 text-amber-600" />
+               <span className="sr-only">Toggle menu</span>
+             </Button>
+           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 py-4 z-40">
+            <nav className="flex flex-col gap-4 px-6">
+              <Link
+                href="#servicios"
+                className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Servicios
+              </Link>
+              <Link
+                href="#precios"
+                className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Precios
+              </Link>
+              <Link
+                href="#contacto"
+                className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contacto
+              </Link>
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
+                <Button
+                  variant="ghost"
+                  className="text-lg bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-6 py-3 font-medium border border-amber-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Llamar Ahora
+                </Button>
+                <Button 
+                  className="text-lg bg-amber-600 text-white hover:bg-amber-700 rounded-full px-6 py-3 font-medium shadow-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Solicitar Presupuesto <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Add padding to main content to account for fixed header */}
@@ -236,10 +295,10 @@ export default function SalvatoreShoeRepairPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/40 via-white/60 to-amber-50/30 z-10"></div>
           <div className="container px-4 md:px-6 text-center relative z-20">
             <div className="max-w-3xl mx-auto space-y-6">
-              <div className="inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4">
+              <div className="inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4 shadow-lg">
                 ✨ Más de 30 años reparando calzado en Torremolinos
               </div>
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif md:text-7xl">
+              <h1 className="text-6xl font-bold tracking-tighter sm:text-7xl text-gray-900 font-serif md:text-7xl">
                 Salvatore Shoes Repair
               </h1>
               <p className="text-lg text-gray-600 md:text-xl max-w-2xl mx-auto">
