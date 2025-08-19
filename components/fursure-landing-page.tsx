@@ -448,7 +448,7 @@ export default function SalvatoreShoeRepairPage() {
               {/* Service 1 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/suela.jpg"
                   alt="Reparación de Suelas"
                   width={500}
                   height={400}
@@ -480,7 +480,7 @@ export default function SalvatoreShoeRepairPage() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="md:order-last">
                   <Image
-                    src="/placeholder.svg?height=400&width=500"
+                    src="/tacones.jpeg"
                     alt="Reparación de Tacones"
                     width={500}
                     height={400}
@@ -512,7 +512,7 @@ export default function SalvatoreShoeRepairPage() {
               {/* Service 3 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/cuero.jpg"
                   alt="Restauración de Cuero"
                   width={500}
                   height={400}
