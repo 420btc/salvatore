@@ -65,7 +65,7 @@ function StoreStatus() {
   }, [])
   
   return (
-    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
+    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium shadow-md ${
       isOpen 
         ? 'bg-green-100 text-green-800 border border-green-200' 
         : 'bg-red-100 text-red-800 border border-red-200'
@@ -367,11 +367,11 @@ export default function SalvatoreShoeRepairPage() {
         <section className="w-full py-12 bg-white border-b border-gray-100">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Horarios de Atención</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4 font-serif italic">Horarios de Atención</h3>
             </div>
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-gray-50 rounded-lg p-4 shadow-md">
                   <h4 className="font-semibold text-gray-900 mb-3">Lunes a Viernes</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
@@ -384,7 +384,7 @@ export default function SalvatoreShoeRepairPage() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-gray-50 rounded-lg p-4 shadow-md">
                   <h4 className="font-semibold text-gray-900 mb-3">Sábado</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
@@ -398,7 +398,7 @@ export default function SalvatoreShoeRepairPage() {
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-4 p-4 bg-red-50 rounded-lg">
+              <div className="text-center mt-4 p-4 bg-red-50 rounded-lg shadow-md">
                 <p className="text-red-700 font-medium">Domingos: Cerrado</p>
               </div>
               
@@ -414,7 +414,7 @@ export default function SalvatoreShoeRepairPage() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-gray-900">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
                 ¿Tus Zapatos Necesitan Atención?
               </h2>
               <p className="mt-4 text-gray-600">
@@ -422,19 +422,19 @@ export default function SalvatoreShoeRepairPage() {
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Suelas Desgastadas</h3>
                 <p className="text-gray-600">
                   ¿Se han gastado las suelas de tus zapatos favoritos? Les damos nueva vida.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Tacones Rotos</h3>
                 <p className="text-gray-600">Reparamos y cambiamos tacones de todo tipo con materiales de calidad.</p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Cuero Dañado</h3>
                 <p className="text-gray-600">
@@ -449,7 +449,7 @@ export default function SalvatoreShoeRepairPage() {
         <section id="servicios" className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-gray-900">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
                 Nuestros Servicios Especializados
               </h2>
               <p className="mt-4 text-gray-600">
@@ -467,7 +467,7 @@ export default function SalvatoreShoeRepairPage() {
                   className="rounded-xl shadow-lg mx-auto border border-gray-200"
                 />
                 <div>
-                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2">
+                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> Reparación de Suelas
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">Suelas Como Nuevas</h3>
@@ -500,7 +500,7 @@ export default function SalvatoreShoeRepairPage() {
                   />
                 </div>
                 <div>
-                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2">
+                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> Reparación de Tacones
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">Tacones Perfectos</h3>
@@ -531,7 +531,7 @@ export default function SalvatoreShoeRepairPage() {
                   className="rounded-xl shadow-lg mx-auto border border-gray-200"
                 />
                 <div>
-                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2">
+                  <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> Restauración de Cuero
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">Cuero Como Nuevo</h3>
@@ -560,7 +560,7 @@ export default function SalvatoreShoeRepairPage() {
         <section id="precios" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-gray-900">Precios Transparentes</h2>
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">Precios Transparentes</h2>
               <p className="mt-4 text-gray-600">
                 Precios justos por un trabajo de calidad. Presupuesto sin compromiso.
               </p>
@@ -655,7 +655,7 @@ export default function SalvatoreShoeRepairPage() {
           </div>
 
           <div className="container px-4 md:px-6 text-center relative z-10">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl font-serif italic">
               ¿Listos para Darle Nueva Vida a tus Zapatos?
             </h2>
             <p className="mt-4 max-w-xl mx-auto text-amber-100">
@@ -679,7 +679,7 @@ export default function SalvatoreShoeRepairPage() {
         {/* FAQ Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12 text-gray-900">
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-gray-900 font-serif italic">
               Preguntas Frecuentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
