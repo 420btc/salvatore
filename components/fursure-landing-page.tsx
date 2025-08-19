@@ -758,7 +758,7 @@ export default function SalvatoreShoeRepairPage() {
           <div className="absolute bottom-20 left-10 w-12 h-12 bg-yellow-200 rounded-full blur-lg"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 py-8 md:py-10 relative z-10">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Brand Section */}
