@@ -490,7 +490,7 @@ export default function SalvatoreShoeRepairPage() {
             />
             <span className="ml-2 text-xl font-bold text-gray-900 font-serif">Salvatore</span>
           </Link>
-          <nav className="hidden lg:flex gap-6 items-center justify-center flex-1 ml-24">
+          <nav className="hidden lg:flex gap-6 items-center justify-center flex-1 ml-32">
             <Link
               href="#servicios"
               className="text-sm font-medium hover:text-amber-600 transition-colors text-gray-600"
