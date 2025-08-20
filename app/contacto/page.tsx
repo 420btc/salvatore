@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Clock, Mail, User, MessageSquare, ArrowRight, Menu, Home } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
+import ChatPopup from "@/components/chat-popup"
 
 mapboxgl.accessToken = "pk.eyJ1IjoiNDIwYnRjIiwiYSI6ImNtOTN3ejBhdzByNjgycHF6dnVmeHl2ZTUifQ.Utq_q5wN6DHwpkn6rcpZdw"
 
@@ -398,6 +399,9 @@ export default function ContactoPage() {
           </div>
         </div>
       </footer>
+      
+      {/* Chat Popup */}
+      <ChatPopup />
     </div>
   )
 }

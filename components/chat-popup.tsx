@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MessageCircle, X, Send, Bot } from 'lucide-react'
+import { MessageCircle, X, Send, Bot, RotateCcw } from 'lucide-react'
 
 interface Message {
   id: string
@@ -14,17 +14,50 @@ interface Message {
 
 export default function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([
-    {
+  const [messages, setMessages] = useState<Message[]>([])
+  const [inputMessage, setInputMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  // Cargar mensajes del localStorage al inicializar
+  useEffect(() => {
+    const savedMessages = localStorage.getItem('salvatore-chat-messages')
+    if (savedMessages) {
+      try {
+        const parsedMessages = JSON.parse(savedMessages).map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp)
+        }))
+        setMessages(parsedMessages)
+      } catch (error) {
+        console.error('Error al cargar mensajes guardados:', error)
+        // Si hay error, inicializar con mensaje de bienvenida
+        initializeWelcomeMessage()
+      }
+    } else {
+      // Primera vez, mostrar mensaje de bienvenida
+      initializeWelcomeMessage()
+    }
+  }, [])
+
+  // Función para inicializar mensaje de bienvenida
+  const initializeWelcomeMessage = () => {
+    const welcomeMessage: Message = {
       id: '1',
       content: '¡Hola! Soy Salvatore, tu experto zapatero virtual. Puedo ayudarte con información sobre nuestros servicios, precios, horarios y reservar citas. ¿En qué puedo asistirte hoy?',
       role: 'assistant',
       timestamp: new Date()
     }
-  ])
-  const [inputMessage, setInputMessage] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+    setMessages([welcomeMessage])
+    localStorage.setItem('salvatore-chat-messages', JSON.stringify([welcomeMessage]))
+  }
+
+  // Guardar mensajes en localStorage cada vez que cambien
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem('salvatore-chat-messages', JSON.stringify(messages))
+    }
+  }, [messages])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -95,6 +128,12 @@ export default function ChatPopup() {
     }
   }
 
+  // Función para limpiar el historial del chat
+  const clearChatHistory = () => {
+    localStorage.removeItem('salvatore-chat-messages')
+    initializeWelcomeMessage()
+  }
+
   return (
     <>
       {/* Chat Button */}
@@ -118,14 +157,25 @@ export default function ChatPopup() {
               <span className="font-semibold">Salvatore</span>
               <span className="text-xs bg-green-500 px-2 py-1 rounded-full">En línea</span>
             </div>
-            <Button
-              onClick={() => setIsOpen(false)}
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-amber-700 p-1 h-auto"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <div className="flex items-center gap-1">
+              <Button
+                onClick={clearChatHistory}
+                variant="ghost"
+                size="sm"
+                className="text-white hover:bg-amber-700 p-1 h-auto"
+                title="Limpiar conversación"
+              >
+                <RotateCcw className="h-4 w-4" />
+              </Button>
+              <Button
+                onClick={() => setIsOpen(false)}
+                variant="ghost"
+                size="sm"
+                className="text-white hover:bg-amber-700 p-1 h-auto"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
           {/* Messages */}
