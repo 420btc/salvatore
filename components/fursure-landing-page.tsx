@@ -15,7 +15,7 @@ import mapboxgl from "mapbox-gl"
 import ChatPopup from "./chat-popup"
 
 // Componente para mostrar el estado actual de la tienda
-function StoreStatus() {
+function StoreStatus({ t }: { t: any }) {
   const [isOpen, setIsOpen] = useState(false)
   const [currentTime, setCurrentTime] = useState('')
 
@@ -81,7 +81,7 @@ function StoreStatus() {
       <span className={`font-bold ${
         isOpen ? 'text-green-700' : 'text-red-700'
       }`}>
-        {isOpen ? 'ABIERTO' : 'CERRADO'}
+        {isOpen ? t.storeOpen : t.storeClosed}
       </span>
     </div>
   )
@@ -202,6 +202,9 @@ export default function SalvatoreShoeRepairPage() {
         premiumRepair: 'Restauración Premium',
         premiumRepairPrice: 'Desde 40€',
         premiumRepairDesc: 'Restauración completa con materiales premium',
+       // Store Status
+       storeOpen: 'ABIERTO',
+       storeClosed: 'CERRADO',
        // Footer
        copyright: 'Todos los derechos reservados.',
        location: 'Torremolinos, Málaga',
@@ -303,6 +306,9 @@ export default function SalvatoreShoeRepairPage() {
         premiumRepair: 'Premium Restoration',
         premiumRepairPrice: 'From €40',
         premiumRepairDesc: 'Complete restoration with premium materials',
+       // Store Status
+       storeOpen: 'OPEN',
+       storeClosed: 'CLOSED',
        // Footer
        copyright: 'All rights reserved.',
        location: 'Torremolinos, Málaga',
@@ -790,7 +796,7 @@ export default function SalvatoreShoeRepairPage() {
               
               {/* Estado Actual de la Tienda */}
               <div className="text-center mt-6">
-                <StoreStatus />
+                <StoreStatus t={t} />
               </div>
             </div>
           </div>
