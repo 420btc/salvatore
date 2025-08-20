@@ -546,6 +546,14 @@ export default function SalvatoreShoeRepairPage() {
                <Home className="h-10 w-10 text-amber-600" />
                <span className="sr-only">Home</span>
              </Button>
+             <Button
+               variant="ghost"
+               className="p-2"
+               onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+             >
+               <Languages className="h-10 w-10 text-amber-600" />
+               <span className="sr-only">Traducir</span>
+             </Button>
              <Button 
                variant="ghost" 
                className="p-2"
