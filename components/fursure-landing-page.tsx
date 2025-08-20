@@ -515,34 +515,34 @@ export default function SalvatoreShoeRepairPage() {
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-3">Lunes a Viernes</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-3">Lunes a Viernes</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span>Mañana:</span>
-                      <span>9:00 - 14:00</span>
+                      <span className="text-sm font-medium">Mañana:</span>
+                      <span className="text-sm font-medium">9:00 - 14:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Tarde:</span>
-                      <span>17:00 - 19:30</span>
+                      <span className="text-sm font-medium">Tarde:</span>
+                      <span className="text-sm font-medium">17:00 - 19:30</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-3">Sábado</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-3">Sábado</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span>Mañana:</span>
-                      <span>10:30 - 13:30</span>
+                      <span className="text-sm font-medium">Mañana:</span>
+                      <span className="text-sm font-medium">10:30 - 13:30</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Tarde:</span>
-                      <span className="text-red-600">Cerrado</span>
+                      <span className="text-sm font-medium">Tarde:</span>
+                      <span className="text-sm font-medium text-red-600">Cerrado</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-md border border-red-200">
-                <p className="text-red-700 font-medium">Domingos: Cerrado</p>
+                <p className="text-sm font-medium text-red-700">Domingos: Cerrado</p>
               </div>
               
               {/* Estado Actual de la Tienda */}
