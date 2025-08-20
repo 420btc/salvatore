@@ -96,6 +96,7 @@ export default function SalvatoreShoeRepairPage() {
   const [mapVisible, setMapVisible] = useState(true)
   const [quoteModalOpen, setQuoteModalOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
+  const [mapActive, setMapActive] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -119,6 +120,32 @@ export default function SalvatoreShoeRepairPage() {
     setQuoteModalOpen(false)
     // Mostrar mensaje de confirmación (simulado)
     alert('¡Solicitud enviada! Te contactaremos pronto.')
+  }
+
+  const toggleMapInteraction = () => {
+    if (!map.current) return
+    
+    if (mapActive) {
+      // Desactivar interacciones
+      map.current.scrollZoom.disable()
+      map.current.boxZoom.disable()
+      map.current.dragRotate.disable()
+      map.current.dragPan.disable()
+      map.current.keyboard.disable()
+      map.current.doubleClickZoom.disable()
+      map.current.touchZoomRotate.disable()
+      setMapActive(false)
+    } else {
+      // Activar interacciones
+      map.current.scrollZoom.enable()
+      map.current.boxZoom.enable()
+      map.current.dragRotate.enable()
+      map.current.dragPan.enable()
+      map.current.keyboard.enable()
+      map.current.doubleClickZoom.enable()
+      map.current.touchZoomRotate.enable()
+      setMapActive(true)
+    }
   }
 
   useEffect(() => {
@@ -190,15 +217,8 @@ export default function SalvatoreShoeRepairPage() {
           essential: true,
         })
 
-        setTimeout(() => {
-          map.current.scrollZoom.enable()
-          map.current.boxZoom.enable()
-          map.current.dragRotate.enable()
-          map.current.dragPan.enable()
-          map.current.keyboard.enable()
-          map.current.doubleClickZoom.enable()
-          map.current.touchZoomRotate.enable()
-        }, 3500)
+        // No habilitar automáticamente las interacciones
+        // Las interacciones se habilitarán solo con doble click
       }, 1000)
     })
   }
@@ -347,7 +367,7 @@ export default function SalvatoreShoeRepairPage() {
               <h1 className="text-6xl font-bold tracking-tighter sm:text-7xl text-gray-900 font-serif md:text-7xl">
                 Salvatore Shoes Repair
               </h1>
-              <p className="text-lg text-gray-600 md:text-xl max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 md:text-xl max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
                 Taller especializado en reparación de calzado. Devolvemos la vida a tus zapatos favoritos con técnicas
                 tradicionales y materiales de primera calidad. Tu calzado en las mejores manos.
               </p>
@@ -380,7 +400,7 @@ export default function SalvatoreShoeRepairPage() {
             </div>
 
             {mapVisible && (
-              <div className="mt-12 md:mt-16">
+              <div className="mt-12 md:mt-16" style={{ marginTop: '300px' }}>
                 <div className="mx-auto rounded-xl shadow-2xl border border-gray-200 overflow-hidden bg-gray-100 relative">
                   {/* Botón para ocultar mapa */}
                   <button
@@ -390,15 +410,37 @@ export default function SalvatoreShoeRepairPage() {
                   >
                     <X className="h-3 w-3 md:h-4 md:w-4 text-white" />
                   </button>
-                  <div ref={mapContainer} className="w-full h-[400px] md:h-[500px]" style={{ minHeight: "400px" }} />
-                  {!mapLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <div className="text-center">
-                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto mb-2"></div>
-                        <p className="text-gray-600 text-sm">Cargando ubicación...</p>
+                  <div className="relative">
+                    <div ref={mapContainer} className="w-full h-[400px] md:h-[500px]" style={{ minHeight: "400px" }} />
+                    {!mapActive && (
+                       <div 
+                         className="absolute inset-0 bg-transparent cursor-pointer"
+                         onDoubleClick={toggleMapInteraction}
+                         onWheel={(e) => e.preventDefault()}
+                         style={{ zIndex: 10 }}
+                       >
+                         <div className="absolute bottom-2 right-2 bg-black/70 text-white px-3 py-1 rounded-lg text-xs font-medium backdrop-blur-sm">
+                           Doble click para activar
+                         </div>
+                       </div>
+                     )}
+                    {mapActive && (
+                      <div 
+                        className="absolute top-2 left-2 z-20 bg-amber-600 hover:bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200"
+                        onClick={toggleMapInteraction}
+                      >
+                        Desactivar mapa
                       </div>
-                    </div>
-                  )}
+                    )}
+                    {!mapLoaded && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                        <div className="text-center">
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto mb-2"></div>
+                          <p className="text-gray-600 text-sm">Cargando ubicación...</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             )}
