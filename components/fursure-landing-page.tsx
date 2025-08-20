@@ -427,8 +427,15 @@ export default function SalvatoreShoeRepairPage() {
                   variant="outline"
                   size="lg"
                   className="border-amber-200 text-amber-700 hover:bg-amber-50 px-8 py-3 bg-transparent shadow-lg"
+                  asChild
                 >
-                  Ver Ubicación
+                  <a 
+                    href="https://www.google.com/local/place/fid/0xd72fb921aba84d3:0x3592bc092cda2ff0/photosphere?iu=https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid%3DNYUu-CsVydg5jIX8RJExOA%26cb_client%3Dsearch.gws-prod.gps%26yaw%3D157.48373%26pitch%3D0%26thumbfov%3D100%26w%3D0%26h%3D0&ik=CAISFk5ZVXUtQ3NWeWRnNWpJWDhSSkV4T0E%3D&sa=X&ved=2ahUKEwiV0s_hopiPAxXF9rsIHf7NEEUQpx96BAg6EBA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver Ubicación
+                  </a>
                 </Button>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-gray-600 mt-6">
