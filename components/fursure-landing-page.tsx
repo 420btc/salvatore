@@ -298,7 +298,7 @@ export default function SalvatoreShoeRepairPage() {
               Precios
             </Link>
             <Link
-              href="#contacto"
+              href="/contacto"
               className="text-sm font-medium hover:text-amber-600 transition-colors text-gray-600"
               prefetch={false}
             >
@@ -359,7 +359,7 @@ export default function SalvatoreShoeRepairPage() {
                 Precios
               </Link>
               <Link
-                href="#contacto"
+                href="/contacto"
                 className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
