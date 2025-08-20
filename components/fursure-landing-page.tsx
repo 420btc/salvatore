@@ -97,6 +97,7 @@ export default function SalvatoreShoeRepairPage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [mapActive, setMapActive] = useState(false)
+  const [showIntro, setShowIntro] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -149,6 +150,48 @@ export default function SalvatoreShoeRepairPage() {
   }
 
   useEffect(() => {
+    // Verificar si el usuario puede ver el video intro
+    const checkVideoPermission = () => {
+      const now = Date.now()
+      const videoData = localStorage.getItem('salvatoreVideoIntro')
+      
+      if (!videoData) {
+        // Primera vez, permitir video
+        const newData = {
+          count: 1,
+          lastReset: now
+        }
+        localStorage.setItem('salvatoreVideoIntro', JSON.stringify(newData))
+        setShowIntro(true)
+        return
+      }
+      
+      const data = JSON.parse(videoData)
+      const timeDiff = now - data.lastReset
+      const twelveHours = 12 * 60 * 60 * 1000 // 12 horas en milisegundos
+      
+      if (timeDiff >= twelveHours) {
+        // Han pasado 12 horas, resetear contador
+        const newData = {
+          count: 1,
+          lastReset: now
+        }
+        localStorage.setItem('salvatoreVideoIntro', JSON.stringify(newData))
+        setShowIntro(true)
+      } else if (data.count < 2) {
+        // Aún puede ver el video
+        const newData = {
+          count: data.count + 1,
+          lastReset: data.lastReset
+        }
+        localStorage.setItem('salvatoreVideoIntro', JSON.stringify(newData))
+        setShowIntro(true)
+      }
+      // Si no cumple ninguna condición, showIntro permanece false
+    }
+    
+    checkVideoPermission()
+    
     // Load Mapbox GL JS
     const script = document.createElement("script")
     script.src = "https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"
@@ -221,6 +264,34 @@ export default function SalvatoreShoeRepairPage() {
         // Las interacciones se habilitarán solo con doble click
       }, 1000)
     })
+  }
+
+  // Componente de video intro
+  if (showIntro) {
+    return (
+      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <video
+          autoPlay
+          muted
+          onEnded={() => setShowIntro(false)}
+          onClick={() => setShowIntro(false)}
+          className="h-full object-contain cursor-pointer"
+          style={{ maxWidth: '100vw' }}
+        >
+          <source src="/introsalva.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+        <button
+          onClick={() => setShowIntro(false)}
+          className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-200"
+        >
+          <X className="h-6 w-6" />
+        </button>
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm opacity-70">
+          Haz click para saltar
+        </div>
+      </div>
+    )
   }
 
   return (
