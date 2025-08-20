@@ -380,9 +380,20 @@ export default function ContactoPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
+          <div className="text-center space-y-2">
             <p className="text-gray-500 text-sm">
               &copy; {new Date().getFullYear()} Salvatore Shoes Repair. Todos los derechos reservados.
+            </p>
+            <p className="text-gray-400 text-xs flex items-center justify-center gap-2">
+              Web made by 
+              <a 
+                href="https://carlosfr.es" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full hover:bg-blue-700 transition-colors"
+              >
+                carlosfr.es
+              </a>
             </p>
           </div>
         </div>

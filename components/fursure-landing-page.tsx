@@ -1015,11 +1015,38 @@ export default function SalvatoreShoeRepairPage() {
             </div>
           </div>
 
+          {/* Heritage Section */}
+          <div className="border-t border-amber-200 pt-6 pb-6">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">🇮🇹</span>
+                <span className="text-gray-700 font-semibold text-lg italic">Tradición y Maestría Italiana</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">🇦🇷</span>
+                <span className="text-gray-700 font-semibold text-lg italic">Hecho con Pasión Argentina</span>
+              </div>
+            </div>
+          </div>
+
           {/* Bottom Bar */}
           <div className="border-t border-amber-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} Salvatore Shoes Repair. Todos los derechos reservados.
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p className="text-gray-500 text-sm">
+                &copy; {new Date().getFullYear()} Salvatore Shoes Repair. Todos los derechos reservados.
+              </p>
+              <p className="text-gray-400 text-xs flex items-center gap-2">
+                Web made by 
+                <a 
+                  href="https://carlosfr.es" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full hover:bg-blue-700 transition-colors"
+                >
+                  carlosfr.es
+                </a>
+              </p>
+            </div>
             <div className="flex gap-6 text-sm">
               <span className="text-gray-500">Torremolinos, Málaga</span>
               <span className="text-gray-500">Calidad desde 1990</span>
