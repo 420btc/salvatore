@@ -75,7 +75,7 @@ function StoreStatus() {
         : 'bg-red-100 text-red-800 border border-red-200'
     }`}>
       <Clock className="h-4 w-4" />
-      <span className="font-semibold">{currentTime}</span>
+      <span className="font-semibold w-16 text-center">{currentTime}</span>
       <span className="mx-1">•</span>
       <span className={`font-bold ${
         isOpen ? 'text-green-700' : 'text-red-700'
@@ -444,7 +444,8 @@ export default function SalvatoreShoeRepairPage() {
             </div>
 
             {mapVisible && (
-              <div className="mt-12 md:mt-16" style={{ marginTop: '300px' }}>
+              <div className="mt-12 md:mt-16" style={{ marginTop: '0px' }}>
+                <div className="md:mt-[300px]">
                 <div className="mx-auto rounded-xl shadow-2xl border border-gray-200 overflow-hidden bg-gray-100 relative">
                   {/* Botón para ocultar mapa */}
                   <button
@@ -485,6 +486,7 @@ export default function SalvatoreShoeRepairPage() {
                       </div>
                     )}
                   </div>
+                </div>
                 </div>
               </div>
             )}
