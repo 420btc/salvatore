@@ -266,35 +266,8 @@ export default function SalvatoreShoeRepairPage() {
     })
   }
 
-  // Componente de video intro
-  if (showIntro) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-        <video
-          autoPlay
-          muted
-          onEnded={() => setShowIntro(false)}
-          onClick={() => setShowIntro(false)}
-          className="h-full object-contain cursor-pointer"
-          style={{ maxWidth: '100vw' }}
-        >
-          <source src="/introsalva.mp4" type="video/mp4" />
-          Tu navegador no soporta el elemento de video.
-        </video>
-        <button
-          onClick={() => setShowIntro(false)}
-          className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-200"
-        >
-          <X className="h-6 w-6" />
-        </button>
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm opacity-70">
-          Haz click para saltar
-        </div>
-      </div>
-    )
-  }
-
-  return (
+  // Renderizar la página principal en segundo plano para pre-cargar
+  const mainContent = (
     <div className="flex flex-col min-h-[100dvh] bg-gray-50 text-gray-800">
       {/* Header */}
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-5xl px-4">
@@ -1207,5 +1180,40 @@ export default function SalvatoreShoeRepairPage() {
         </DialogContent>
       </Dialog>
     </div>
+  )
+
+  return (
+    <>
+      {/* Renderizar la página principal siempre para pre-cargar */}
+      <div style={{ visibility: showIntro ? 'hidden' : 'visible' }}>
+        {mainContent}
+      </div>
+      
+      {/* Video intro superpuesto */}
+      {showIntro && (
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <video
+            autoPlay
+            muted
+            onEnded={() => setShowIntro(false)}
+            onClick={() => setShowIntro(false)}
+            className="h-full object-contain cursor-pointer"
+            style={{ maxWidth: '100vw' }}
+          >
+            <source src="/introsalva.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <button
+            onClick={() => setShowIntro(false)}
+            className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-200"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm opacity-70">
+            Haz click para saltar
+          </div>
+        </div>
+      )}
+    </>
   )
 }
