@@ -5,7 +5,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Calendar } from "@/components/ui/calendar"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X, Calendar as CalendarIcon, User, MessageSquare } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 
@@ -90,6 +94,32 @@ export default function SalvatoreShoeRepairPage() {
   const [mapLoaded, setMapLoaded] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mapVisible, setMapVisible] = useState(true)
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false)
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    comments: ''
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmitQuote = () => {
+    // Aquí iría la lógica para enviar el presupuesto
+    console.log('Datos del formulario:', {
+      ...formData,
+      selectedDate
+    })
+    // Resetear formulario
+    setFormData({ name: '', phone: '', comments: '' })
+    setSelectedDate(undefined)
+    setQuoteModalOpen(false)
+    // Mostrar mensaje de confirmación (simulado)
+    alert('¡Solicitud enviada! Te contactaremos pronto.')
+  }
 
   useEffect(() => {
     // Load Mapbox GL JS
@@ -219,7 +249,10 @@ export default function SalvatoreShoeRepairPage() {
             >
               <a href="tel:952374610">Llamar Ahora</a>
             </Button>
-            <Button className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg">
+            <Button 
+              className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg"
+              onClick={() => setQuoteModalOpen(true)}
+            >
               Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -279,7 +312,10 @@ export default function SalvatoreShoeRepairPage() {
                 </Button>
                 <Button 
                   className="text-lg bg-amber-600 text-white hover:bg-amber-700 rounded-full px-6 py-3 font-medium shadow-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    setQuoteModalOpen(true)
+                  }}
                 >
                   Solicitar Presupuesto <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -316,7 +352,11 @@ export default function SalvatoreShoeRepairPage() {
                 tradicionales y materiales de primera calidad. Tu calzado en las mejores manos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" className="text-white hover:bg-amber-700 bg-amber-600 shadow-xl px-8 py-3">
+                <Button 
+                  size="lg" 
+                  className="text-white hover:bg-amber-700 bg-amber-600 shadow-xl px-8 py-3"
+                  onClick={() => setQuoteModalOpen(true)}
+                >
                   Solicitar Presupuesto <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
@@ -592,7 +632,10 @@ export default function SalvatoreShoeRepairPage() {
                       <span className="font-semibold">5€ - 8€</span>
                     </li>
                   </ul>
-                  <Button className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg">
+                  <Button 
+                    className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg"
+                    onClick={() => setQuoteModalOpen(true)}
+                  >
                     Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
@@ -626,7 +669,10 @@ export default function SalvatoreShoeRepairPage() {
                       <span className="font-semibold">10€ - 18€</span>
                     </li>
                   </ul>
-                  <Button className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg">
+                  <Button 
+                    className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg"
+                    onClick={() => setQuoteModalOpen(true)}
+                  >
                     Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
@@ -878,6 +924,175 @@ export default function SalvatoreShoeRepairPage() {
           </div>
         </div>
       </footer>
+
+      {/* Modal de Solicitar Presupuesto */}
+      <Dialog open={quoteModalOpen} onOpenChange={setQuoteModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-white via-amber-50/30 to-white border-2 border-amber-200 shadow-2xl">
+          
+          <DialogHeader className="text-center pb-4 border-b border-amber-100 pr-12">
+            <DialogTitle className="text-3xl font-bold text-gray-900 font-serif flex items-center justify-center gap-3">
+              <div className="p-2 bg-amber-100 rounded-full">
+                <CalendarIcon className="h-6 w-6 text-amber-600" />
+              </div>
+              Solicitar Presupuesto
+            </DialogTitle>
+            <DialogDescription className="text-gray-600 mt-2 text-lg">
+              Completa el formulario y te contactaremos para darte el mejor presupuesto para tu calzado.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="grid lg:grid-cols-2 gap-6 py-6">
+            {/* Formulario */}
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                    <User className="h-4 w-4 text-amber-600" />
+                    Nombre completo
+                  </label>
+                  <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Tu nombre completo"
+                    className="border-amber-200 focus:border-amber-400 focus:ring-amber-400 bg-white/80"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-amber-600" />
+                    Teléfono
+                  </label>
+                  <Input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Tu número de teléfono"
+                    type="tel"
+                    className="border-amber-200 focus:border-amber-400 focus:ring-amber-400 bg-white/80"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4 text-amber-600" />
+                    Comentarios
+                  </label>
+                  <Textarea
+                    name="comments"
+                    value={formData.comments}
+                    onChange={handleInputChange}
+                    placeholder="Describe el estado de tu calzado y qué tipo de reparación necesitas..."
+                    rows={4}
+                    className="border-amber-200 focus:border-amber-400 focus:ring-amber-400 bg-white/80 resize-none"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Calendario */}
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                  <CalendarIcon className="h-4 w-4 text-amber-600" />
+                  Fecha preferida para la visita
+                </label>
+                <p className="text-xs text-gray-500">
+                  Selecciona una fecha para visitarnos (opcional)
+                </p>
+              </div>
+              
+              <div className="bg-white/60 rounded-lg border border-amber-200 p-2 overflow-hidden">
+                <div className="flex justify-center">
+                  <Calendar
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={setSelectedDate}
+                    disabled={(date) => {
+                      const today = new Date()
+                      today.setHours(0, 0, 0, 0)
+                      const dayOfWeek = date.getDay()
+                      // Deshabilitar domingos (0) y fechas pasadas
+                      return date < today || dayOfWeek === 0
+                    }}
+                    className="rounded-md border-0 p-0 [&_table]:w-full [&_td]:text-center [&_th]:text-center"
+                    classNames={{
+                      months: "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1",
+                      month: "space-y-4 w-full flex flex-col",
+                      table: "w-full h-full border-collapse space-y-1",
+                      head_row: "",
+                      head_cell: "text-amber-600 rounded-md w-8 h-8 font-normal text-[0.8rem] flex items-center justify-center",
+                      row: "w-full mt-2",
+                      cell: "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-amber-100 [&:has([aria-selected].day-outside)]:bg-amber-100/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
+                      day: "h-8 w-8 p-0 font-normal hover:bg-amber-50 rounded-md flex items-center justify-center text-sm",
+                      day_range_end: "day-range-end",
+                      day_selected: "bg-amber-600 text-white hover:bg-amber-700 hover:text-white focus:bg-amber-600 focus:text-white rounded-md",
+                      day_today: "bg-amber-100 text-amber-900 font-bold",
+                      day_outside: "text-gray-400 opacity-50 aria-selected:bg-amber-100/50 aria-selected:text-gray-500 aria-selected:opacity-30",
+                      day_disabled: "text-gray-400 opacity-50",
+                      day_range_middle: "aria-selected:bg-amber-100 aria-selected:text-amber-900",
+                      day_hidden: "invisible",
+                      caption: "flex justify-center pt-1 relative items-center",
+                      caption_label: "text-sm font-medium text-gray-900",
+                      nav: "space-x-1 flex items-center",
+                      nav_button: "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-7 w-7",
+                      nav_button_previous: "absolute left-1",
+                      nav_button_next: "absolute right-1"
+                    }}
+                  />
+                </div>
+              </div>
+              
+              {selectedDate && (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                  <p className="text-sm text-amber-800 font-medium">
+                    📅 Fecha seleccionada: {selectedDate.toLocaleDateString('es-ES', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Información adicional */}
+          <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-lg p-4 mb-6">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <Clock className="h-4 w-4 text-amber-600" />
+              Horarios de Atención
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <div>📅 <strong>Lun-Vie:</strong> 9:00-14:00 / 17:00-19:30</div>
+              <div>📅 <strong>Sábado:</strong> 10:30-13:30</div>
+              <div>📅 <strong>Domingo:</strong> Cerrado</div>
+              <div>📞 <strong>Teléfono:</strong> 952 37 46 10</div>
+            </div>
+          </div>
+          
+          {/* Botones */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-amber-100">
+            <Button
+              variant="outline"
+              onClick={() => setQuoteModalOpen(false)}
+              className="flex-1 border-amber-200 text-amber-700 hover:bg-amber-50"
+            >
+              Cancelar
+            </Button>
+            <Button
+              onClick={handleSubmitQuote}
+              disabled={!formData.name || !formData.phone}
+              className="flex-1 bg-amber-600 text-white hover:bg-amber-700 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Enviar Solicitud
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
