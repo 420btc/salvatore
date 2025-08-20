@@ -101,7 +101,7 @@ export default function ChatPopup() {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-amber-600 hover:bg-amber-700 shadow-lg transition-all duration-300 hover:scale-110"
+          className="fixed bottom-4 right-4 z-50 h-14 w-14 rounded-full bg-amber-600 hover:bg-amber-700 shadow-lg transition-all duration-300 hover:scale-110"
           size="icon"
         >
           <MessageCircle className="h-6 w-6 text-white" />
@@ -110,7 +110,7 @@ export default function ChatPopup() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col">
+        <div className="fixed bottom-4 right-4 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col">
           {/* Header */}
           <div className="bg-amber-600 text-white p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
