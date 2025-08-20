@@ -1019,11 +1019,23 @@ export default function SalvatoreShoeRepairPage() {
           <div className="border-t border-amber-200 pt-6 pb-6">
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
               <div className="flex items-center gap-3">
-                <span className="text-3xl">🇮🇹</span>
+                <div className="w-8 h-6 rounded-sm overflow-hidden shadow-sm">
+                  <div className="h-full flex">
+                    <div className="w-1/3 bg-green-600"></div>
+                    <div className="w-1/3 bg-white"></div>
+                    <div className="w-1/3 bg-red-600"></div>
+                  </div>
+                </div>
                 <span className="text-gray-700 font-semibold text-lg italic">Tradición y Maestría Italiana</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-3xl">🇦🇷</span>
+                <div className="w-8 h-6 rounded-sm overflow-hidden shadow-sm">
+                  <div className="h-full flex flex-col">
+                    <div className="h-1/3 bg-sky-400"></div>
+                    <div className="h-1/3 bg-white"></div>
+                    <div className="h-1/3 bg-sky-400"></div>
+                  </div>
+                </div>
                 <span className="text-gray-700 font-semibold text-lg italic">Hecho con Pasión Argentina</span>
               </div>
             </div>
