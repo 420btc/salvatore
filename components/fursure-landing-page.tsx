@@ -492,14 +492,29 @@ export default function SalvatoreShoeRepairPage() {
         </section>
 
         {/* Horarios Section */}
-        <section className="w-full py-12 bg-white border-b border-gray-100">
-          <div className="container px-4 md:px-6">
+        <section className="w-full min-h-screen bg-white border-b border-gray-100 relative flex items-center">
+          {/* Imagen de fondo */}
+          <div 
+            className="absolute inset-2 md:inset-4 z-0" 
+            style={{ 
+              borderRadius: '2rem',
+              backgroundImage: 'url(/tiendagpt.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: 0.98,
+              filter: 'blur(1px)'
+            }}
+          />
+          <div className="container px-4 md:px-6 relative z-10">
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 font-serif italic">Horarios de Atención</h3>
+              <div className="inline-block bg-white/20 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/30 shadow-lg">
+                <h3 className="text-3xl font-bold text-white mb-0 font-serif italic drop-shadow-lg">Horarios de Atención</h3>
+              </div>
             </div>
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="bg-gray-50 rounded-lg p-4 shadow-md">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
                   <h4 className="font-semibold text-gray-900 mb-3">Lunes a Viernes</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
@@ -512,7 +527,7 @@ export default function SalvatoreShoeRepairPage() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 shadow-md">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
                   <h4 className="font-semibold text-gray-900 mb-3">Sábado</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
@@ -526,7 +541,7 @@ export default function SalvatoreShoeRepairPage() {
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-4 p-4 bg-red-50 rounded-lg shadow-md">
+              <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-md border border-red-200">
                 <p className="text-red-700 font-medium">Domingos: Cerrado</p>
               </div>
               
