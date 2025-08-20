@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Calendar } from "@/components/ui/calendar"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X, Calendar as CalendarIcon, User, MessageSquare } from "lucide-react"
+import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X, Calendar as CalendarIcon, User, MessageSquare, Languages } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 
@@ -98,11 +98,219 @@ export default function SalvatoreShoeRepairPage() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [mapActive, setMapActive] = useState(false)
   const [showIntro, setShowIntro] = useState(false)
+  const [language, setLanguage] = useState('es')
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     comments: ''
   })
+
+  const translations = {
+    es: {
+      // Header
+      services: 'Servicios',
+      prices: 'Precios',
+      contact: 'Contacto',
+      callNow: 'Llamar Ahora',
+      requestQuote: 'Solicitar Presupuesto',
+      // Hero
+      badge: '✨ Más de 30 años reparando calzado en Torremolinos',
+      title: 'Salvatore Shoes Repair',
+      subtitle: 'Taller especializado en reparación de calzado. Devolvemos la vida a tus zapatos favoritos con técnicas tradicionales y materiales de primera calidad. Tu calzado en las mejores manos.',
+      viewLocation: 'Ver Ubicación',
+      // Services
+      servicesTitle: 'Nuestros Servicios',
+      servicesSubtitle: 'Ofrecemos una amplia gama de servicios de reparación de calzado con más de 30 años de experiencia',
+      soleRepair: 'Reparación de Suelas',
+      soleRepairDesc: 'Cambio completo de suelas con materiales de alta calidad. Damos nueva vida a tu calzado favorito.',
+      heelRepair: 'Reparación de Tacones',
+      heelRepairDesc: 'Arreglo y cambio de tacones de todo tipo. Recupera la comodidad y elegancia de tus zapatos.',
+      leatherRepair: 'Reparación de Cuero',
+      leatherRepairDesc: 'Restauración profesional de cuero dañado. Técnicas tradicionales para resultados duraderos.',
+      // Schedule
+      scheduleTitle: 'Horarios de Atención',
+      mondayFriday: 'Lunes a Viernes',
+      saturday: 'Sábado',
+      morning: 'Mañana:',
+      afternoon: 'Tarde:',
+      closed: 'Cerrado',
+      sundayClosed: 'Domingos: Cerrado',
+      // Heritage
+      italianTradition: 'Tradición y Maestría Italiana',
+      argentinianPassion: 'Hecho con Pasión Argentina',
+      // Problems Section
+       problemsTitle: '¿Tus Zapatos Necesitan Atención?',
+       problemsSubtitle: 'No tires tus zapatos favoritos. En Salvatore les damos una segunda vida con reparaciones profesionales.',
+       wornSoles: 'Suelas Desgastadas',
+       wornSolesDesc: '¿Se han gastado las suelas de tus zapatos favoritos? Les damos nueva vida.',
+       brokenHeels: 'Tacones Rotos',
+       brokenHeelsDesc: 'Reparamos y cambiamos tacones de todo tipo con materiales de calidad.',
+       damagedLeather: 'Cuero Dañado',
+       damagedLeatherDesc: 'Restauramos el cuero dañado y devolvemos el brillo original a tu calzado.',
+       // Service Features
+       leatherRubberSoles: 'Suelas de cuero y goma',
+       halfSoleRepair: 'Reparación de medias suelas',
+       workGuarantee: 'Garantía en todos los trabajos',
+       // Detailed Services
+       heelRepairTitle: 'Tacones Perfectos',
+       heelRepairDetailDesc: 'Especialistas en reparación y cambio de tacones. Desde tacones altos hasta zapatos de vestir, devolvemos la elegancia a tu calzado.',
+       needleHeels: 'Tacones de aguja y plataforma',
+       heelTips: 'Cambio de puntas y tapas',
+       heightAdjustment: 'Ajuste de altura',
+       leatherRestoration: 'Cuero Como Nuevo',
+       leatherDetailDesc: 'Restauramos el cuero dañado, arañazos, decoloraciones y grietas. Tu calzado recuperará su aspecto original.',
+       leatherCleaning: 'Limpieza y nutrición del cuero',
+       scratchRepair: 'Reparación de arañazos',
+       colorRestoration: 'Teñido y restauración de color',
+       // Price Details
+       halfSole: 'Media suela',
+       heelChange: 'Cambio de tacón',
+       heelTip: 'Punta de tacón',
+       basicCleaning: 'Limpieza básica',
+       mostRequested: 'Más Solicitado',
+       fullSole: 'Suela completa',
+       leatherRestorationPrice: 'Restauración cuero',
+       fullDyeing: 'Teñido completo',
+       zipperRepair: 'Reparación cremalleras',
+       // Call to Action
+       ctaTitle: '¿Listos para Darle Nueva Vida a tus Zapatos?',
+       ctaSubtitle: 'Más de 30 años de experiencia nos avalan. Ven a visitarnos o llámanos para un presupuesto sin compromiso.',
+       callNowFull: 'Llamar Ahora: 952 37 46 10',
+       viewLocationCta: 'Ver Ubicación',
+       // FAQ
+       faqTitle: 'Preguntas Frecuentes',
+       faqQ1: '¿Qué tipos de calzado reparan?',
+       faqA1: 'Reparamos todo tipo de calzado: zapatos de vestir, deportivos, botas, sandalias, tacones altos, zapatos de seguridad y más. Si tiene suela, ¡lo reparamos!',
+       faqQ2: '¿Cuánto tiempo tardan las reparaciones?',
+       faqA2: 'Dependiendo del tipo de reparación, entre 2-7 días laborables. Las reparaciones simples como cambio de puntas de tacón pueden estar listas en 24-48 horas.',
+       faqQ3: '¿Ofrecen garantía en sus trabajos?',
+       faqA3: 'Sí, todos nuestros trabajos tienen garantía. La duración depende del tipo de reparación, pero generalmente ofrecemos entre 3-6 meses de garantía.',
+       faqQ4: '¿Necesito cita previa?',
+       faqA4: 'No es necesario, pero recomendamos llamar antes para asegurar que podemos atenderle inmediatamente y tener el presupuesto listo.',
+       faqQ5: '¿Qué formas de pago aceptan?',
+       faqA5: 'Aceptamos efectivo y tarjeta. El pago se realiza al recoger el calzado una vez completada la reparación.',
+       // Prices
+        pricesTitle: 'Precios',
+        pricesSubtitle: 'Precios competitivos y transparentes para todos nuestros servicios',
+        basicRepair: 'Reparación Básica',
+        basicRepairPrice: 'Desde 15€',
+        basicRepairDesc: 'Reparaciones menores y ajustes básicos',
+        advancedRepair: 'Reparación Avanzada',
+        advancedRepairPrice: 'Desde 25€',
+        advancedRepairDesc: 'Cambio de suelas y reparaciones complejas',
+        premiumRepair: 'Restauración Premium',
+        premiumRepairPrice: 'Desde 40€',
+        premiumRepairDesc: 'Restauración completa con materiales premium',
+       // Footer
+       copyright: 'Todos los derechos reservados.',
+       location: 'Torremolinos, Málaga',
+       since: 'Calidad desde 1990',
+       webMadeBy: 'Web made by'
+    },
+    en: {
+      // Header
+      services: 'Services',
+      prices: 'Prices',
+      contact: 'Contact',
+      callNow: 'Call Now',
+      requestQuote: 'Request Quote',
+      // Hero
+      badge: '✨ Over 30 years repairing shoes in Torremolinos',
+      title: 'Salvatore Shoes Repair',
+      subtitle: 'Specialized shoe repair workshop. We bring your favorite shoes back to life with traditional techniques and premium materials. Your footwear in the best hands.',
+      viewLocation: 'View Location',
+      // Services
+      servicesTitle: 'Our Services',
+      servicesSubtitle: 'We offer a wide range of shoe repair services with over 30 years of experience',
+      soleRepair: 'Sole Repair',
+      soleRepairDesc: 'Complete sole replacement with high-quality materials. We give new life to your favorite footwear.',
+      heelRepair: 'Heel Repair',
+      heelRepairDesc: 'Repair and replacement of all types of heels. Restore comfort and elegance to your shoes.',
+      leatherRepair: 'Leather Repair',
+      leatherRepairDesc: 'Professional restoration of damaged leather. Traditional techniques for lasting results.',
+      // Schedule
+      scheduleTitle: 'Opening Hours',
+      mondayFriday: 'Monday to Friday',
+      saturday: 'Saturday',
+      morning: 'Morning:',
+      afternoon: 'Afternoon:',
+      closed: 'Closed',
+      sundayClosed: 'Sundays: Closed',
+      // Heritage
+      italianTradition: 'Italian Tradition and Mastery',
+      argentinianPassion: 'Made with Argentinian Passion',
+      // Problems Section
+       problemsTitle: 'Do Your Shoes Need Attention?',
+       problemsSubtitle: "Don't throw away your favorite shoes. At Salvatore we give them a second life with professional repairs.",
+       wornSoles: 'Worn Soles',
+       wornSolesDesc: 'Have the soles of your favorite shoes worn out? We give them new life.',
+       brokenHeels: 'Broken Heels',
+       brokenHeelsDesc: 'We repair and replace all types of heels with quality materials.',
+       damagedLeather: 'Damaged Leather',
+       damagedLeatherDesc: 'We restore damaged leather and bring back the original shine to your footwear.',
+       // Service Features
+       leatherRubberSoles: 'Leather and rubber soles',
+       halfSoleRepair: 'Half sole repair',
+       workGuarantee: 'Guarantee on all work',
+       // Detailed Services
+       heelRepairTitle: 'Perfect Heels',
+       heelRepairDetailDesc: 'Specialists in heel repair and replacement. From high heels to dress shoes, we restore elegance to your footwear.',
+       needleHeels: 'Stiletto and platform heels',
+       heelTips: 'Tip and cap replacement',
+       heightAdjustment: 'Height adjustment',
+       leatherRestoration: 'Like New Leather',
+       leatherDetailDesc: 'We restore damaged leather, scratches, discoloration and cracks. Your footwear will recover its original appearance.',
+       leatherCleaning: 'Leather cleaning and nourishment',
+       scratchRepair: 'Scratch repair',
+       colorRestoration: 'Dyeing and color restoration',
+       // Price Details
+       halfSole: 'Half sole',
+       heelChange: 'Heel replacement',
+       heelTip: 'Heel tip',
+       basicCleaning: 'Basic cleaning',
+       mostRequested: 'Most Requested',
+       fullSole: 'Full sole',
+       leatherRestorationPrice: 'Leather restoration',
+       fullDyeing: 'Full dyeing',
+       zipperRepair: 'Zipper repair',
+       // Call to Action
+       ctaTitle: 'Ready to Give New Life to Your Shoes?',
+       ctaSubtitle: 'Over 30 years of experience back us up. Come visit us or call us for a no-obligation quote.',
+       callNowFull: 'Call Now: 952 37 46 10',
+       viewLocationCta: 'View Location',
+       // FAQ
+       faqTitle: 'Frequently Asked Questions',
+       faqQ1: 'What types of footwear do you repair?',
+       faqA1: 'We repair all types of footwear: dress shoes, sneakers, boots, sandals, high heels, safety shoes and more. If it has a sole, we repair it!',
+       faqQ2: 'How long do repairs take?',
+       faqA2: 'Depending on the type of repair, between 2-7 business days. Simple repairs like heel tip replacement can be ready in 24-48 hours.',
+       faqQ3: 'Do you offer warranty on your work?',
+       faqA3: 'Yes, all our work comes with warranty. Duration depends on the type of repair, but we generally offer between 3-6 months warranty.',
+       faqQ4: 'Do I need an appointment?',
+       faqA4: 'Not necessary, but we recommend calling ahead to ensure we can serve you immediately and have the quote ready.',
+       faqQ5: 'What payment methods do you accept?',
+       faqA5: 'We accept cash and card. Payment is made when picking up the footwear once the repair is completed.',
+       // Prices
+        pricesTitle: 'Prices',
+        pricesSubtitle: 'Competitive and transparent prices for all our services',
+        basicRepair: 'Basic Repair',
+        basicRepairPrice: 'From €15',
+        basicRepairDesc: 'Minor repairs and basic adjustments',
+        advancedRepair: 'Advanced Repair',
+        advancedRepairPrice: 'From €25',
+        advancedRepairDesc: 'Sole replacement and complex repairs',
+        premiumRepair: 'Premium Restoration',
+        premiumRepairPrice: 'From €40',
+        premiumRepairDesc: 'Complete restoration with premium materials',
+       // Footer
+       copyright: 'All rights reserved.',
+       location: 'Torremolinos, Málaga',
+       since: 'Quality since 1990',
+       webMadeBy: 'Web made by'
+    }
+  }
+
+  const t = translations[language as keyof typeof translations]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -272,7 +480,7 @@ export default function SalvatoreShoeRepairPage() {
       {/* Header */}
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-5xl px-4">
         <div className="bg-white rounded-full shadow-xl border border-gray-100 px-6 py-3 flex items-center justify-between">
-          <Link href="#" className="flex items-center justify-center" prefetch={false}>
+          <Link href="#" className="flex items-center justify-start" prefetch={false}>
             <Image
               src="/salvatore.png"
               alt="Salvatore Logo"
@@ -282,43 +490,52 @@ export default function SalvatoreShoeRepairPage() {
             />
             <span className="ml-2 text-xl font-bold text-gray-900 font-serif">Salvatore</span>
           </Link>
-          <nav className="hidden lg:flex gap-6 items-center">
+          <nav className="hidden lg:flex gap-6 items-center justify-center flex-1 ml-24">
             <Link
               href="#servicios"
               className="text-sm font-medium hover:text-amber-600 transition-colors text-gray-600"
               prefetch={false}
             >
-              Servicios
+              {t.services}
             </Link>
             <Link
               href="#precios"
               className="text-sm font-medium hover:text-amber-600 transition-colors text-gray-600"
               prefetch={false}
             >
-              Precios
+              {t.prices}
             </Link>
             <Link
               href="/contacto"
               className="text-sm font-medium hover:text-amber-600 transition-colors text-gray-600"
               prefetch={false}
             >
-              Contacto
+              {t.contact}
             </Link>
           </nav>
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 justify-end">
             <Button
               variant="ghost"
-              className="text-sm bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-4 py-2 font-medium border border-amber-200"
-              asChild
+              size="sm"
+              onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+              className="text-sm text-gray-600 hover:text-amber-600 px-2 py-1"
             >
-              <a href="tel:952374610">Llamar Ahora</a>
+              <Languages className="h-4 w-4 mr-1" />
+              {language === 'es' ? 'EN' : 'ES'}
             </Button>
-            <Button 
-              className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg"
-              onClick={() => setQuoteModalOpen(true)}
-            >
-              Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Button
+               variant="ghost"
+               className="text-sm bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-4 py-2 font-medium border border-amber-200"
+               asChild
+             >
+               <a href="tel:952374610">{t.callNow}</a>
+             </Button>
+             <Button 
+               className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg"
+               onClick={() => setQuoteModalOpen(true)}
+             >
+               {t.requestQuote} <ArrowRight className="ml-2 h-4 w-4" />
+             </Button>
           </div>
           <div className="lg:hidden flex items-center gap-1">
              <Button 
@@ -344,26 +561,35 @@ export default function SalvatoreShoeRepairPage() {
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 py-4 z-40">
             <nav className="flex flex-col gap-4 px-6">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+                className="text-lg text-gray-600 hover:text-amber-600 px-2 py-2 self-start"
+              >
+                <Languages className="h-5 w-5 mr-2" />
+                {language === 'es' ? 'English' : 'Español'}
+              </Button>
               <Link
                 href="#servicios"
                 className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Servicios
+                {t.services}
               </Link>
               <Link
                 href="#precios"
                 className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Precios
+                {t.prices}
               </Link>
               <Link
                 href="/contacto"
                 className="text-lg font-medium hover:text-amber-600 transition-colors text-gray-600 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Contacto
+                {t.contact}
               </Link>
               <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
                 <Button
@@ -372,7 +598,7 @@ export default function SalvatoreShoeRepairPage() {
                   onClick={() => setMobileMenuOpen(false)}
                   asChild
                 >
-                  <a href="tel:952374610">Llamar Ahora</a>
+                  <a href="tel:952374610">{t.callNow}</a>
                 </Button>
                 <Button 
                   className="text-lg bg-amber-600 text-white hover:bg-amber-700 rounded-full px-6 py-3 font-medium shadow-lg"
@@ -381,7 +607,7 @@ export default function SalvatoreShoeRepairPage() {
                     setQuoteModalOpen(true)
                   }}
                 >
-                  Solicitar Presupuesto <ArrowRight className="ml-2 h-5 w-5" />
+                  {t.requestQuote} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </nav>
@@ -406,14 +632,13 @@ export default function SalvatoreShoeRepairPage() {
           <div className={`container px-4 md:px-6 text-center relative z-20 ${mapVisible ? 'pt-8 md:pt-12' : 'pt-20 md:pt-24'}`}>
             <div className="max-w-3xl mx-auto space-y-6">
               <div className={`inline-block rounded-full bg-amber-100 px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm font-medium text-amber-700 mb-4 shadow-lg ${mapVisible ? 'mt-4 md:mt-6' : 'mt-0'}`}>
-                ✨ Más de 30 años reparando calzado en Torremolinos
+                {t.badge}
               </div>
               <h1 className="text-6xl font-bold tracking-tighter sm:text-7xl text-gray-900 font-serif md:text-7xl" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
-                Salvatore Shoes Repair
+                {t.title}
               </h1>
               <p className="text-lg text-gray-600 md:text-xl max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-                Taller especializado en reparación de calzado. Devolvemos la vida a tus zapatos favoritos con técnicas
-                tradicionales y materiales de primera calidad. Tu calzado en las mejores manos.
+                {t.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
@@ -421,7 +646,7 @@ export default function SalvatoreShoeRepairPage() {
                   className="text-white hover:bg-amber-700 bg-amber-600 shadow-xl px-8 py-3"
                   onClick={() => setQuoteModalOpen(true)}
                 >
-                  Solicitar Presupuesto <ArrowRight className="ml-2 h-5 w-5" />
+                  {t.requestQuote} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
                   variant="outline"
@@ -434,7 +659,7 @@ export default function SalvatoreShoeRepairPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Ver Ubicación
+                    {t.viewLocation}
                   </a>
                 </Button>
               </div>
@@ -518,40 +743,40 @@ export default function SalvatoreShoeRepairPage() {
           <div className="container px-4 md:px-6 relative z-10">
             <div className="text-center mb-8">
               <div className="inline-block bg-white/20 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/30 shadow-lg">
-                <h3 className="text-3xl font-bold text-white mb-0 font-serif italic drop-shadow-lg">Horarios de Atención</h3>
+                <h3 className="text-3xl font-bold text-white mb-0 font-serif italic drop-shadow-lg">{t.scheduleTitle}</h3>
               </div>
             </div>
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">Lunes a Viernes</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-3">{t.mondayFriday}</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">Mañana:</span>
+                      <span className="text-sm font-medium">{t.morning}</span>
                       <span className="text-sm font-medium">9:00 - 14:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">Tarde:</span>
+                      <span className="text-sm font-medium">{t.afternoon}</span>
                       <span className="text-sm font-medium">17:00 - 19:30</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">Sábado</h4>
+                  <h4 className="text-sm font-medium text-gray-900 mb-3">{t.saturday}</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">Mañana:</span>
+                      <span className="text-sm font-medium">{t.morning}</span>
                       <span className="text-sm font-medium">10:30 - 13:30</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">Tarde:</span>
-                      <span className="text-sm font-medium text-red-600">Cerrado</span>
+                      <span className="text-sm font-medium">{t.afternoon}</span>
+                      <span className="text-sm font-medium text-red-600">{t.closed}</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-md border border-red-200">
-                <p className="text-sm font-medium text-red-700">Domingos: Cerrado</p>
+                <p className="text-sm font-medium text-red-700">{t.sundayClosed}</p>
               </div>
               
               {/* Estado Actual de la Tienda */}
@@ -567,30 +792,30 @@ export default function SalvatoreShoeRepairPage() {
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12">
               <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
-                ¿Tus Zapatos Necesitan Atención?
+                {t.problemsTitle}
               </h2>
               <p className="mt-4 text-gray-600">
-                No tires tus zapatos favoritos. En Salvatore les damos una segunda vida con reparaciones profesionales.
+                {t.problemsSubtitle}
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
               <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Suelas Desgastadas</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.wornSoles}</h3>
                 <p className="text-gray-600">
-                  ¿Se han gastado las suelas de tus zapatos favoritos? Les damos nueva vida.
+                  {t.wornSolesDesc}
                 </p>
               </div>
               <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Tacones Rotos</h3>
-                <p className="text-gray-600">Reparamos y cambiamos tacones de todo tipo con materiales de calidad.</p>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.brokenHeels}</h3>
+                <p className="text-gray-600">{t.brokenHeelsDesc}</p>
               </div>
               <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <XCircle className="h-12 w-12 text-red-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Cuero Dañado</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.damagedLeather}</h3>
                 <p className="text-gray-600">
-                  Restauramos el cuero dañado y devolvemos el brillo original a tu calzado.
+                  {t.damagedLeatherDesc}
                 </p>
               </div>
             </div>
@@ -602,10 +827,10 @@ export default function SalvatoreShoeRepairPage() {
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
               <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
-                Nuestros Servicios Especializados
+                {t.servicesTitle}
               </h2>
               <p className="mt-4 text-gray-600">
-                Más de 30 años de experiencia nos avalan. Ofrecemos servicios completos de reparación de calzado.
+                {t.servicesSubtitle}
               </p>
             </div>
             <div className="grid gap-12 md:gap-16">
@@ -620,22 +845,21 @@ export default function SalvatoreShoeRepairPage() {
                 />
                 <div>
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
-                    <Wrench className="inline-block h-4 w-4 mr-1" /> Reparación de Suelas
+                    <Wrench className="inline-block h-4 w-4 mr-1" /> {t.soleRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">Suelas Como Nuevas</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.soleRepair}</h3>
                   <p className="text-gray-600 mb-4">
-                    Cambiamos y reparamos suelas de todo tipo de calzado. Utilizamos materiales de primera calidad que
-                    garantizan durabilidad y comodidad.
+                    {t.soleRepairDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Suelas de cuero y goma
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.leatherRubberSoles}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Reparación de medias suelas
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.halfSoleRepair}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Garantía en todos los trabajos
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.workGuarantee}
                     </li>
                   </ul>
                 </div>
@@ -653,22 +877,21 @@ export default function SalvatoreShoeRepairPage() {
                 </div>
                 <div>
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
-                    <Wrench className="inline-block h-4 w-4 mr-1" /> Reparación de Tacones
+                    <Wrench className="inline-block h-4 w-4 mr-1" /> {t.heelRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">Tacones Perfectos</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.heelRepairTitle}</h3>
                   <p className="text-gray-600 mb-4">
-                    Especialistas en reparación y cambio de tacones. Desde tacones altos hasta zapatos de vestir,
-                    devolvemos la elegancia a tu calzado.
+                    {t.heelRepairDetailDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Tacones de aguja y plataforma
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.needleHeels}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Cambio de puntas y tapas
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.heelTips}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Ajuste de altura
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.heightAdjustment}
                     </li>
                   </ul>
                 </div>
@@ -684,22 +907,21 @@ export default function SalvatoreShoeRepairPage() {
                 />
                 <div>
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
-                    <Wrench className="inline-block h-4 w-4 mr-1" /> Restauración de Cuero
+                    <Wrench className="inline-block h-4 w-4 mr-1" /> {t.leatherRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">Cuero Como Nuevo</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.leatherRestoration}</h3>
                   <p className="text-gray-600 mb-4">
-                    Restauramos el cuero dañado, arañazos, decoloraciones y grietas. Tu calzado recuperará su aspecto
-                    original.
+                    {t.leatherDetailDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Limpieza y nutrición del cuero
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.leatherCleaning}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Reparación de arañazos
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.scratchRepair}
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> Teñido y restauración de color
+                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.colorRestoration}
                     </li>
                   </ul>
                 </div>
@@ -712,33 +934,33 @@ export default function SalvatoreShoeRepairPage() {
         <section id="precios" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
-              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">Precios Transparentes</h2>
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">{t.pricesTitle}</h2>
               <p className="mt-4 text-gray-600">
-                Precios justos por un trabajo de calidad. Presupuesto sin compromiso.
+                {t.pricesSubtitle}
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
               <Card className="shadow-lg border border-gray-200">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl font-bold text-gray-900">Servicios Básicos</CardTitle>
-                  <CardDescription className="text-gray-600">Reparaciones esenciales para tu calzado.</CardDescription>
+                  <CardTitle className="text-2xl font-bold text-gray-900">{t.basicRepair}</CardTitle>
+                  <CardDescription className="text-gray-600">{t.basicRepairDesc}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex justify-between items-center">
-                      <span>Media suela</span>
+                      <span>{t.halfSole}</span>
                       <span className="font-semibold">15€ - 25€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Cambio de tacón</span>
+                      <span>{t.heelChange}</span>
                       <span className="font-semibold">8€ - 15€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Punta de tacón</span>
+                      <span>{t.heelTip}</span>
                       <span className="font-semibold">3€ - 5€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Limpieza básica</span>
+                      <span>{t.basicCleaning}</span>
                       <span className="font-semibold">5€ - 8€</span>
                     </li>
                   </ul>
@@ -752,30 +974,30 @@ export default function SalvatoreShoeRepairPage() {
               </Card>
               <Card className="shadow-lg border-2 border-amber-300 relative bg-gradient-to-br from-amber-50 to-white">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white px-3 py-1 text-xs font-semibold rounded-full shadow-lg">
-                  Más Solicitado
+                  {t.mostRequested}
                 </div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl font-bold text-gray-900">Servicios Premium</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-gray-900">{t.premiumRepair}</CardTitle>
                   <CardDescription className="text-gray-600">
-                    Restauración completa y servicios especializados.
+                    {t.premiumRepairDesc}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex justify-between items-center">
-                      <span>Suela completa</span>
+                      <span>{t.fullSole}</span>
                       <span className="font-semibold">25€ - 45€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Restauración cuero</span>
+                      <span>{t.leatherRestorationPrice}</span>
                       <span className="font-semibold">20€ - 35€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Teñido completo</span>
+                      <span>{t.fullDyeing}</span>
                       <span className="font-semibold">15€ - 25€</span>
                     </li>
                     <li className="flex justify-between items-center">
-                      <span>Reparación cremalleras</span>
+                      <span>{t.zipperRepair}</span>
                       <span className="font-semibold">10€ - 18€</span>
                     </li>
                   </ul>
@@ -814,21 +1036,21 @@ export default function SalvatoreShoeRepairPage() {
 
           <div className="container px-4 md:px-6 text-center relative z-10">
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl font-serif italic">
-              ¿Listos para Darle Nueva Vida a tus Zapatos?
+              {t.ctaTitle}
             </h2>
             <p className="mt-4 max-w-xl mx-auto text-amber-100">
-              Más de 30 años de experiencia nos avalan. Ven a visitarnos o llámanos para un presupuesto sin compromiso.
+              {t.ctaSubtitle}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 shadow-xl" asChild>
-                <a href="tel:952374610">Llamar Ahora: 952 37 46 10 <Phone className="ml-2 h-5 w-5" /></a>
+                <a href="tel:952374610">{t.callNowFull} <Phone className="ml-2 h-5 w-5" /></a>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-amber-700 bg-transparent"
               >
-                Ver Ubicación <MapPin className="ml-2 h-5 w-5" />
+                {t.viewLocationCta} <MapPin className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -838,52 +1060,47 @@ export default function SalvatoreShoeRepairPage() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6 max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-gray-900 font-serif italic">
-              Preguntas Frecuentes
+              {t.faqTitle}
             </h2>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-amber-600">
-                  ¿Qué tipos de calzado reparan?
+                  {t.faqQ1}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Reparamos todo tipo de calzado: zapatos de vestir, deportivos, botas, sandalias, tacones altos,
-                  zapatos de seguridad y más. Si tiene suela, ¡lo reparamos!
+                  {t.faqA1}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-amber-600">
-                  ¿Cuánto tiempo tardan las reparaciones?
+                  {t.faqQ2}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Dependiendo del tipo de reparación, entre 2-7 días laborables. Las reparaciones simples como cambio de
-                  puntas de tacón pueden estar listas en 24-48 horas.
+                  {t.faqA2}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-amber-600">
-                  ¿Ofrecen garantía en sus trabajos?
+                  {t.faqQ3}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Sí, todos nuestros trabajos tienen garantía. La duración depende del tipo de reparación, pero
-                  generalmente ofrecemos entre 3-6 meses de garantía.
+                  {t.faqA3}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-amber-600">
-                  ¿Necesito cita previa?
+                  {t.faqQ4}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  No es necesario, pero recomendamos llamar antes para asegurar que podemos atenderle inmediatamente y
-                  tener el presupuesto listo.
+                  {t.faqA4}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-5">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-amber-600">
-                  ¿Qué formas de pago aceptan?
+                  {t.faqQ5}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
-                  Aceptamos efectivo y tarjeta. El pago se realiza al recoger el calzado una vez completada la
-                  reparación.
+                  {t.faqA5}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -1033,17 +1250,17 @@ export default function SalvatoreShoeRepairPage() {
                     <div className="w-1/3 bg-red-600"></div>
                   </div>
                 </div>
-                <span className="text-gray-700 font-semibold text-lg italic">Tradición y Maestría Italiana</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-6 rounded-sm overflow-hidden shadow-sm">
-                  <div className="h-full flex flex-col">
-                    <div className="h-1/3 bg-sky-400"></div>
-                    <div className="h-1/3 bg-white"></div>
-                    <div className="h-1/3 bg-sky-400"></div>
-                  </div>
-                </div>
-                <span className="text-gray-700 font-semibold text-lg italic">Hecho con Pasión Argentina</span>
+                <span className="text-gray-700 font-semibold text-lg italic">{t.italianTradition}</span>
+               </div>
+               <div className="flex items-center gap-3">
+                 <div className="w-8 h-6 rounded-sm overflow-hidden shadow-sm">
+                   <div className="h-full flex flex-col">
+                     <div className="h-1/3 bg-sky-400"></div>
+                     <div className="h-1/3 bg-white"></div>
+                     <div className="h-1/3 bg-sky-400"></div>
+                   </div>
+                 </div>
+                 <span className="text-gray-700 font-semibold text-lg italic">{t.argentinianPassion}</span>
               </div>
             </div>
           </div>
@@ -1052,10 +1269,10 @@ export default function SalvatoreShoeRepairPage() {
           <div className="border-t border-amber-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-2">
               <p className="text-gray-500 text-sm">
-                &copy; {new Date().getFullYear()} Salvatore Shoes Repair. Todos los derechos reservados.
+                &copy; {new Date().getFullYear()} Salvatore Shoes Repair. {t.copyright}
               </p>
               <p className="text-gray-400 text-xs flex items-center gap-2">
-                Web made by 
+                {t.webMadeBy} 
                 <a 
                   href="https://carlosfr.es" 
                   target="_blank" 
@@ -1067,8 +1284,8 @@ export default function SalvatoreShoeRepairPage() {
               </p>
             </div>
             <div className="flex gap-6 text-sm">
-              <span className="text-gray-500">Torremolinos, Málaga</span>
-              <span className="text-gray-500">Calidad desde 1990</span>
+              <span className="text-gray-500">{t.location}</span>
+              <span className="text-gray-500">{t.since}</span>
             </div>
           </div>
         </div>
