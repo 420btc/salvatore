@@ -339,9 +339,9 @@ export default function SalvatoreShoeRepairPage() {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/40 via-white/60 to-amber-50/30 z-10"></div>
-          <div className={`container px-4 md:px-6 text-center relative z-20 ${!mapVisible ? 'pt-20' : ''}`}>
+          <div className={`container px-4 md:px-6 text-center relative z-20 ${mapVisible ? 'pt-8 md:pt-12' : 'pt-20 md:pt-24'}`}>
             <div className="max-w-3xl mx-auto space-y-6">
-              <div className="inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4 shadow-lg">
+              <div className={`inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-700 mb-4 shadow-lg ${mapVisible ? 'mt-4 md:mt-6' : 'mt-0'}`}>
                 ✨ Más de 30 años reparando calzado en Torremolinos
               </div>
               <h1 className="text-6xl font-bold tracking-tighter sm:text-7xl text-gray-900 font-serif md:text-7xl">
