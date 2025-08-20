@@ -1510,8 +1510,8 @@ export default function SalvatoreShoeRepairPage() {
         </div>
       )}
       
-      {/* Chat Popup */}
-      <ChatPopup />
+      {/* Chat Popup - Solo mostrar después de la intro */}
+      {!showIntro && <ChatPopup />}
     </>
   )
 }
