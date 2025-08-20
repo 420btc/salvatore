@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, Home, X, Calendar as CalendarIcon, User, MessageSquare, Languages } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
+import ChatPopup from "./chat-popup"
 
 // Componente para mostrar el estado actual de la tienda
 function StoreStatus() {
@@ -1502,6 +1503,9 @@ export default function SalvatoreShoeRepairPage() {
           </div>
         </div>
       )}
+      
+      {/* Chat Popup */}
+      <ChatPopup />
     </>
   )
 }
