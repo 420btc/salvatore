@@ -41,11 +41,11 @@ function StoreStatus({ t }: { t: any }) {
         // Domingo - Cerrado
         storeIsOpen = false
       } else if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-        // Lunes a Viernes: 9:00-14:00 y 17:00-19:30
-        const morningStart = 9 * 60 // 9:00
+        // Lunes a Viernes: 10:00-14:00 y 18:00-20:30
+        const morningStart = 10 * 60 // 10:00
         const morningEnd = 14 * 60 // 14:00
-        const afternoonStart = 17 * 60 // 17:00
-        const afternoonEnd = 19 * 60 + 30 // 19:30
+        const afternoonStart = 18 * 60 // 18:00
+        const afternoonEnd = 20 * 60 + 30 // 20:30
         
         storeIsOpen = (currentTimeInMinutes >= morningStart && currentTimeInMinutes < morningEnd) ||
                      (currentTimeInMinutes >= afternoonStart && currentTimeInMinutes < afternoonEnd)
@@ -136,9 +136,20 @@ export default function SalvatoreShoeRepairPage() {
       afternoon: 'Tarde:',
       closed: 'Cerrado',
       sundayClosed: 'Domingos: Cerrado',
-      // Heritage
-      italianTradition: 'Tradición y Maestría Italiana',
-      argentinianPassion: 'Hecho con Pasión Argentina',
+      // Services Overview
+       servicesOverviewTitle: 'Todos Nuestros Servicios',
+       servicesOverviewSubtitle: 'Ofrecemos una amplia gama de servicios de reparación con más de 30 años de experiencia',
+       shoeRepairOverview: 'Reparación de Calzado',
+       shoeRepairOverviewDesc: 'Suelas, tacones y restauración de cuero',
+       watchRepairOverview: 'Reparación de Relojes',
+       watchRepairOverviewDesc: 'Cambio de pilas, limpieza y correas',
+       helmetFabricOverview: 'Cascos y Textiles',
+       helmetFabricOverviewDesc: 'Reparación de cascos y telas',
+       knifeSharpeningOverview: 'Afilado de Cuchillos',
+       knifeSharpeningOverviewDesc: 'Afilado profesional de todo tipo de cuchillos',
+       // Heritage
+       italianTradition: 'Tradición y Maestría Italiana',
+       argentinianPassion: 'Hecho con Pasión Argentina',
       // Problems Section
        problemsTitle: '¿Tus Zapatos Necesitan Atención?',
        problemsSubtitle: 'No tires tus zapatos favoritos. En Salvatore les damos una segunda vida con reparaciones profesionales.',
@@ -258,9 +269,20 @@ export default function SalvatoreShoeRepairPage() {
       afternoon: 'Afternoon:',
       closed: 'Closed',
       sundayClosed: 'Sundays: Closed',
-      // Heritage
-      italianTradition: 'Italian Tradition and Mastery',
-      argentinianPassion: 'Made with Argentinian Passion',
+      // Services Overview
+       servicesOverviewTitle: 'All Our Services',
+       servicesOverviewSubtitle: 'We offer a wide range of repair services with over 30 years of experience',
+       shoeRepairOverview: 'Shoe Repair',
+       shoeRepairOverviewDesc: 'Soles, heels and leather restoration',
+       watchRepairOverview: 'Watch Repair',
+       watchRepairOverviewDesc: 'Battery change, cleaning and straps',
+       helmetFabricOverview: 'Helmets and Textiles',
+       helmetFabricOverviewDesc: 'Helmet and fabric repair',
+       knifeSharpeningOverview: 'Knife Sharpening',
+       knifeSharpeningOverviewDesc: 'Professional sharpening of all types of knives',
+       // Heritage
+       italianTradition: 'Italian Tradition and Mastery',
+       argentinianPassion: 'Made with Argentinian Passion',
       // Problems Section
        problemsTitle: 'Do Your Shoes Need Attention?',
        problemsSubtitle: "Don't throw away your favorite shoes. At Salvatore we give them a second life with professional repairs.",
@@ -800,39 +822,112 @@ export default function SalvatoreShoeRepairPage() {
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">{t.mondayFriday}</h4>
+                  <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.mondayFriday}</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">{t.morning}</span>
-                      <span className="text-sm font-medium">9:00 - 14:00</span>
+                      <span className="text-base md:text-sm font-medium">{t.morning}</span>
+                      <span className="text-base md:text-sm font-medium">10:00 - 14:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm font-medium">{t.afternoon}</span>
-                      <span className="text-sm font-medium">17:00 - 19:30</span>
+                      <span className="text-base md:text-sm font-medium">{t.afternoon}</span>
+                      <span className="text-base md:text-sm font-medium">18:00 - 20:30</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">{t.saturday}</h4>
+                  <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.saturday}</h4>
                   <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span className="text-sm font-medium">{t.morning}</span>
-                      <span className="text-sm font-medium">10:30 - 13:30</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-sm font-medium">{t.afternoon}</span>
-                      <span className="text-sm font-medium text-red-600">{t.closed}</span>
+                    <div className="flex justify-center">
+                      <span className="text-base md:text-sm font-medium text-red-600">DESCANSO</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-md border border-red-200">
-                <p className="text-sm font-medium text-red-700">{t.sundayClosed}</p>
+                <p className="text-base md:text-sm font-medium text-red-700">{t.sundayClosed}</p>
               </div>
               
               {/* Estado Actual de la Tienda */}
               <div className="text-center mt-6">
                 <StoreStatus t={t} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Overview Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
+                {t.servicesOverviewTitle}
+              </h2>
+              <p className="mt-4 text-gray-600">
+                {t.servicesOverviewSubtitle}
+              </p>
+            </div>
+            
+            {/* Desktop Layout - 4 columns in one row */}
+            <div className="hidden md:grid gap-6 md:grid-cols-4 max-w-6xl mx-auto">
+              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
+                  <Wrench className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.shoeRepairOverview}</h3>
+                <p className="text-amber-700 leading-relaxed">{t.shoeRepairOverviewDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
+                  <Clock className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.watchRepairOverview}</h3>
+                <p className="text-amber-700 leading-relaxed">{t.watchRepairOverviewDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
+                  <CheckCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.helmetFabricOverview}</h3>
+                <p className="text-amber-700 leading-relaxed">{t.helmetFabricOverviewDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
+                  <ArrowRight className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.knifeSharpeningOverview}</h3>
+                <p className="text-amber-700 leading-relaxed">{t.knifeSharpeningOverviewDesc}</p>
+              </div>
+            </div>
+
+            {/* Mobile Layout - 2x2 grid with larger cards */}
+            <div className="md:hidden grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
+                  <Wrench className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.shoeRepairOverview}</h3>
+                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.shoeRepairOverviewDesc}</p>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
+                  <Clock className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.watchRepairOverview}</h3>
+                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.watchRepairOverviewDesc}</p>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
+                  <CheckCircle className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.helmetFabricOverview}</h3>
+                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.helmetFabricOverviewDesc}</p>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
+                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
+                  <ArrowRight className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.knifeSharpeningOverview}</h3>
+                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.knifeSharpeningOverviewDesc}</p>
               </div>
             </div>
           </div>
@@ -1495,12 +1590,12 @@ export default function SalvatoreShoeRepairPage() {
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>
                   <div className="font-medium">Lun - Vie</div>
-                  <div>9:00-14:00 / 17:00-19:30</div>
+                  <div>10:00-14:00 / 18:00-20:30</div>
                 </li>
                 <li>
-                  <div className="font-medium">Sábado</div>
-                  <div>10:30-13:30</div>
-                </li>
+                    <div className="font-medium">Sábado</div>
+                    <div className="text-red-600">Descanso</div>
+                  </li>
                 <li>
                   <div className="font-medium">Domingo</div>
                   <div className="text-red-600">Cerrado</div>
@@ -1702,8 +1797,8 @@ export default function SalvatoreShoeRepairPage() {
               Horarios de Atención
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
-              <div>📅 <strong>Lun-Vie:</strong> 9:00-14:00 / 17:00-19:30</div>
-              <div>📅 <strong>Sábado:</strong> 10:30-13:30</div>
+              <div>📅 <strong>Lun-Vie:</strong> 10:00-14:00 / 18:00-20:30</div>
+              <div>📅 <strong>Sábado:</strong> Descanso</div>
               <div>📅 <strong>Domingo:</strong> Cerrado</div>
               <div>📞 <strong>Teléfono:</strong> 952 37 46 10</div>
             </div>
