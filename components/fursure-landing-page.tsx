@@ -202,6 +202,24 @@ export default function SalvatoreShoeRepairPage() {
         premiumRepair: 'Restauración Premium',
         premiumRepairPrice: 'Desde 40€',
         premiumRepairDesc: 'Restauración completa con materiales premium',
+       // Watch Repair
+       watchRepairTitle: 'Reparación de Relojes',
+       watchRepairSubtitle: 'Servicios especializados para mantener tu reloj funcionando perfectamente',
+       batteryChange: 'Cambio de Pila',
+       batteryChangeDesc: 'Cambio profesional de pilas para todo tipo de relojes.',
+       watchCleaning: 'Limpieza de Mecanismo',
+       watchCleaningDesc: 'Limpieza y mantenimiento del mecanismo interno.',
+       strapRepair: 'Reparación de Correas',
+       strapRepairDesc: 'Reparación y cambio de correas de cuero y metal.',
+       // Helmet and Fabric Repair
+       helmetFabricTitle: 'Reparación de Cascos y Tela',
+       helmetFabricSubtitle: 'Servicios especializados para cascos de moto y reparación de textiles',
+       helmetRepair: 'Reparación de Cascos',
+       helmetRepairDesc: 'Reparación de cascos de motocicleta y bicicleta.',
+       fabricRepair: 'Reparación de Tela',
+       fabricRepairDesc: 'Reparación de chaquetas, pantalones y textiles.',
+       paddingRepair: 'Reparación de Acolchado',
+       paddingRepairDesc: 'Restauración del acolchado interno de cascos.',
        // Store Status
        storeOpen: 'ABIERTO',
        storeClosed: 'CERRADO',
@@ -306,6 +324,24 @@ export default function SalvatoreShoeRepairPage() {
         premiumRepair: 'Premium Restoration',
         premiumRepairPrice: 'From €40',
         premiumRepairDesc: 'Complete restoration with premium materials',
+       // Watch Repair
+       watchRepairTitle: 'Watch Repair',
+       watchRepairSubtitle: 'Specialized services to keep your watch running perfectly',
+       batteryChange: 'Battery Change',
+       batteryChangeDesc: 'Professional battery replacement for all types of watches.',
+       watchCleaning: 'Mechanism Cleaning',
+       watchCleaningDesc: 'Cleaning and maintenance of internal mechanism.',
+       strapRepair: 'Strap Repair',
+       strapRepairDesc: 'Repair and replacement of leather and metal straps.',
+       // Helmet and Fabric Repair
+       helmetFabricTitle: 'Helmet and Fabric Repair',
+       helmetFabricSubtitle: 'Specialized services for motorcycle helmets and textile repair',
+       helmetRepair: 'Helmet Repair',
+       helmetRepairDesc: 'Repair of motorcycle and bicycle helmets.',
+       fabricRepair: 'Fabric Repair',
+       fabricRepairDesc: 'Repair of jackets, pants and textiles.',
+       paddingRepair: 'Padding Repair',
+       paddingRepairDesc: 'Restoration of internal helmet padding.',
        // Store Status
        storeOpen: 'OPEN',
        storeClosed: 'CLOSED',
@@ -848,7 +884,8 @@ export default function SalvatoreShoeRepairPage() {
                 {t.servicesSubtitle}
               </p>
             </div>
-            <div className="grid gap-12 md:gap-16">
+            {/* Desktop Layout */}
+            <div className="hidden md:grid gap-12 md:gap-16">
               {/* Service 1 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image
@@ -940,6 +977,224 @@ export default function SalvatoreShoeRepairPage() {
                     </li>
                   </ul>
                 </div>
+              </div>
+            </div>
+
+            {/* Mobile Layout - 2 Columns */}
+            <div className="md:hidden grid grid-cols-2 gap-4">
+              {/* Service 1 - Mobile */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <Image
+                  src="/suela.jpg"
+                  alt="Reparación de Suelas"
+                  width={200}
+                  height={160}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                />
+                <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
+                  <Wrench className="inline-block h-3 w-3 mr-1" /> {t.soleRepair}
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.soleRepair}</h3>
+                <p className="text-xs text-gray-600 mb-2">
+                  {t.soleRepairDesc}
+                </p>
+                <ul className="space-y-1 text-xs text-gray-600">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.leatherRubberSoles}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.halfSoleRepair}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.workGuarantee}
+                  </li>
+                </ul>
+              </div>
+
+              {/* Service 2 - Mobile */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <Image
+                  src="/tacones.jpeg"
+                  alt="Reparación de Tacones"
+                  width={200}
+                  height={160}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                />
+                <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
+                  <Wrench className="inline-block h-3 w-3 mr-1" /> {t.heelRepair}
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.heelRepairTitle}</h3>
+                <p className="text-xs text-gray-600 mb-2">
+                  {t.heelRepairDetailDesc}
+                </p>
+                <ul className="space-y-1 text-xs text-gray-600">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.needleHeels}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.heelTips}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.heightAdjustment}
+                  </li>
+                </ul>
+              </div>
+
+              {/* Service 3 - Mobile - Spans 2 columns to center it */}
+              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
+                <Image
+                  src="/cuero.jpg"
+                  alt="Restauración de Cuero"
+                  width={200}
+                  height={160}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                />
+                <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
+                  <Wrench className="inline-block h-3 w-3 mr-1" /> {t.leatherRepair}
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.leatherRestoration}</h3>
+                <p className="text-xs text-gray-600 mb-2">
+                  {t.leatherDetailDesc}
+                </p>
+                <ul className="space-y-1 text-xs text-gray-600">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.leatherCleaning}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.scratchRepair}
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.colorRestoration}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Watch Repair Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
+                {t.watchRepairTitle}
+              </h2>
+              <p className="mt-4 text-gray-600">
+                {t.watchRepairSubtitle}
+              </p>
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden md:grid gap-8 md:grid-cols-3">
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-blue-100 rounded-full mb-4">
+                  <Clock className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.batteryChange}</h3>
+                <p className="text-gray-600">{t.batteryChangeDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-blue-100 rounded-full mb-4">
+                  <Wrench className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.watchCleaning}</h3>
+                <p className="text-gray-600">{t.watchCleaningDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-blue-100 rounded-full mb-4">
+                  <CheckCircle className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.strapRepair}</h3>
+                <p className="text-gray-600">{t.strapRepairDesc}</p>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
+                  <Clock className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.batteryChange}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.batteryChangeDesc}</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
+                  <Wrench className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.watchCleaning}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.watchCleaningDesc}</p>
+              </div>
+              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
+                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
+                  <CheckCircle className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.strapRepair}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.strapRepairDesc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Helmet and Fabric Repair Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
+                {t.helmetFabricTitle}
+              </h2>
+              <p className="mt-4 text-gray-600">
+                {t.helmetFabricSubtitle}
+              </p>
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden md:grid gap-8 md:grid-cols-3">
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-green-100 rounded-full mb-4">
+                  <CheckCircle className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.helmetRepair}</h3>
+                <p className="text-gray-600">{t.helmetRepairDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-green-100 rounded-full mb-4">
+                  <Wrench className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.fabricRepair}</h3>
+                <p className="text-gray-600">{t.fabricRepairDesc}</p>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="p-4 bg-green-100 rounded-full mb-4">
+                  <XCircle className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.paddingRepair}</h3>
+                <p className="text-gray-600">{t.paddingRepairDesc}</p>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
+                  <CheckCircle className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.helmetRepair}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.helmetRepairDesc}</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
+                  <Wrench className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.fabricRepair}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.fabricRepairDesc}</p>
+              </div>
+              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
+                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
+                  <XCircle className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.paddingRepair}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.paddingRepairDesc}</p>
               </div>
             </div>
           </div>
