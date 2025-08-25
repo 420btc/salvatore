@@ -13,6 +13,7 @@ import { Wrench, XCircle, CheckCircle, ArrowRight, Menu, MapPin, Phone, Clock, H
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 import ChatPopup from "./chat-popup"
+import WatchInternalsDemo from "./ui/reloj"
 
 // Componente para mostrar el estado actual de la tienda
 function StoreStatus({ t }: { t: any }) {
@@ -143,8 +144,8 @@ export default function SalvatoreShoeRepairPage() {
        shoeRepairOverviewDesc: 'Suelas, tacones y restauración de cuero',
        watchRepairOverview: 'Reparación de Relojes',
        watchRepairOverviewDesc: 'Cambio de pilas, limpieza y correas',
-       helmetFabricOverview: 'Cascos y Textiles',
-       helmetFabricOverviewDesc: 'Reparación de cascos y telas',
+       helmetFabricOverview: 'Cascos, Textiles y Cremalleras',
+       helmetFabricOverviewDesc: 'Reparación de cascos, telas y cremalleras',
        knifeSharpeningOverview: 'Afilado de Cuchillos',
        knifeSharpeningOverviewDesc: 'Afilado profesional de todo tipo de cuchillos',
        // Heritage
@@ -183,7 +184,6 @@ export default function SalvatoreShoeRepairPage() {
        fullSole: 'Suela completa',
        leatherRestorationPrice: 'Restauración cuero',
        fullDyeing: 'Teñido completo',
-       zipperRepair: 'Reparación cremalleras',
        // Call to Action
        ctaTitle: '¿Listos para Darle Nueva Vida a tus Zapatos?',
        ctaSubtitle: 'Más de 30 años de experiencia nos avalan. Ven a visitarnos o llámanos para un presupuesto sin compromiso.',
@@ -223,14 +223,14 @@ export default function SalvatoreShoeRepairPage() {
        strapRepair: 'Reparación de Correas',
        strapRepairDesc: 'Reparación y cambio de correas de cuero y metal.',
        // Helmet and Fabric Repair
-       helmetFabricTitle: 'Reparación de Cascos y Tela',
-       helmetFabricSubtitle: 'Servicios especializados para cascos de moto y reparación de textiles',
+       helmetFabricTitle: 'Reparación de Cascos, Tela y Cremalleras',
+       helmetFabricSubtitle: 'Servicios especializados para cascos de moto, reparación de textiles y cremalleras',
        helmetRepair: 'Reparación de Cascos',
        helmetRepairDesc: 'Reparación de cascos de motocicleta y bicicleta.',
        fabricRepair: 'Reparación de Tela',
        fabricRepairDesc: 'Reparación de chaquetas, pantalones y textiles.',
-       paddingRepair: 'Reparación de Acolchado',
-       paddingRepairDesc: 'Restauración del acolchado interno de cascos.',
+       zipperRepair: 'Reparación de Cremalleras',
+       zipperRepairDesc: 'Reparación y cambio de cremalleras en todo tipo de prendas.',
        // Store Status
        storeOpen: 'ABIERTO',
        storeClosed: 'CERRADO',
@@ -276,8 +276,8 @@ export default function SalvatoreShoeRepairPage() {
        shoeRepairOverviewDesc: 'Soles, heels and leather restoration',
        watchRepairOverview: 'Watch Repair',
        watchRepairOverviewDesc: 'Battery change, cleaning and straps',
-       helmetFabricOverview: 'Helmets and Textiles',
-       helmetFabricOverviewDesc: 'Helmet and fabric repair',
+       helmetFabricOverview: 'Helmets, Textiles and Zippers',
+       helmetFabricOverviewDesc: 'Helmet, fabric and zipper repair',
        knifeSharpeningOverview: 'Knife Sharpening',
        knifeSharpeningOverviewDesc: 'Professional sharpening of all types of knives',
        // Heritage
@@ -316,7 +316,6 @@ export default function SalvatoreShoeRepairPage() {
        fullSole: 'Full sole',
        leatherRestorationPrice: 'Leather restoration',
        fullDyeing: 'Full dyeing',
-       zipperRepair: 'Zipper repair',
        // Call to Action
        ctaTitle: 'Ready to Give New Life to Your Shoes?',
        ctaSubtitle: 'Over 30 years of experience back us up. Come visit us or call us for a no-obligation quote.',
@@ -356,14 +355,14 @@ export default function SalvatoreShoeRepairPage() {
        strapRepair: 'Strap Repair',
        strapRepairDesc: 'Repair and replacement of leather and metal straps.',
        // Helmet and Fabric Repair
-       helmetFabricTitle: 'Helmet and Fabric Repair',
-       helmetFabricSubtitle: 'Specialized services for motorcycle helmets and textile repair',
+       helmetFabricTitle: 'Helmet, Fabric and Zipper Repair',
+       helmetFabricSubtitle: 'Specialized services for motorcycle helmets, textile and zipper repair',
        helmetRepair: 'Helmet Repair',
        helmetRepairDesc: 'Repair of motorcycle and bicycle helmets.',
        fabricRepair: 'Fabric Repair',
        fabricRepairDesc: 'Repair of jackets, pants and textiles.',
-       paddingRepair: 'Padding Repair',
-       paddingRepairDesc: 'Restoration of internal helmet padding.',
+       zipperRepair: 'Zipper Repair',
+       zipperRepairDesc: 'Repair and replacement of zippers on all types of garments.',
        // Store Status
        storeOpen: 'OPEN',
        storeClosed: 'CLOSED',
@@ -1181,51 +1180,117 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-blue-100 rounded-full mb-4">
-                  <Clock className="h-8 w-8 text-blue-600" />
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/pilareloj.mov" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.batteryChange}</h3>
+                  <p className="text-white drop-shadow-md">{t.batteryChangeDesc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.batteryChange}</h3>
-                <p className="text-gray-600">{t.batteryChangeDesc}</p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-blue-100 rounded-full mb-4">
-                  <Wrench className="h-8 w-8 text-blue-600" />
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/relojj.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.watchCleaning}</h3>
+                  <p className="text-white drop-shadow-md">{t.watchCleaningDesc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.watchCleaning}</h3>
-                <p className="text-gray-600">{t.watchCleaningDesc}</p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-blue-100 rounded-full mb-4">
-                  <CheckCircle className="h-8 w-8 text-blue-600" />
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/correaa.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.strapRepair}</h3>
+                  <p className="text-white drop-shadow-md">{t.strapRepairDesc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.strapRepair}</h3>
-                <p className="text-gray-600">{t.strapRepairDesc}</p>
               </div>
             </div>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
-                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
-                  <Clock className="h-6 w-6 text-blue-600" />
+              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/pilareloj.mov" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.batteryChange}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.batteryChangeDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.batteryChange}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.batteryChangeDesc}</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
-                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
-                  <Wrench className="h-6 w-6 text-blue-600" />
+              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/relojj.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.watchCleaning}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.watchCleaningDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.watchCleaning}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.watchCleaningDesc}</p>
               </div>
-              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
-                <div className="p-3 bg-blue-100 rounded-full mb-3 w-fit mx-auto">
-                  <CheckCircle className="h-6 w-6 text-blue-600" />
+              <div className="col-span-2 relative rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto overflow-hidden min-h-[150px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/correaa.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.strapRepair}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.strapRepairDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.strapRepair}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.strapRepairDesc}</p>
               </div>
             </div>
           </div>
@@ -1260,12 +1325,12 @@ export default function SalvatoreShoeRepairPage() {
                 <p className="text-gray-600">{t.fabricRepairDesc}</p>
               </div>
               <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-green-100 rounded-full mb-4">
-                  <XCircle className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.paddingRepair}</h3>
-                <p className="text-gray-600">{t.paddingRepairDesc}</p>
-              </div>
+                 <div className="p-4 bg-green-100 rounded-full mb-4">
+                   <ArrowRight className="h-8 w-8 text-green-600" />
+                 </div>
+                 <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.zipperRepair}</h3>
+                 <p className="text-gray-600">{t.zipperRepairDesc}</p>
+               </div>
             </div>
 
             {/* Mobile Layout */}
@@ -1286,10 +1351,10 @@ export default function SalvatoreShoeRepairPage() {
               </div>
               <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
                 <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
-                  <XCircle className="h-6 w-6 text-green-600" />
+                  <ArrowRight className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.paddingRepair}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.paddingRepairDesc}</p>
+                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.zipperRepair}</h3>
+                <p className="text-xs text-gray-600 text-center">{t.zipperRepairDesc}</p>
               </div>
             </div>
           </div>

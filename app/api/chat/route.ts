@@ -37,18 +37,6 @@ SERVICIOS:
    - Teñido y restauración de color
    - Restauración de cuero dañado, decoloraciones y grietas
 
-4. Reparación de Relojes:
-   - Cambio profesional de pilas para todo tipo de relojes
-   - Limpieza y mantenimiento del mecanismo interno
-   - Reparación y cambio de correas de cuero y metal
-   - Servicios especializados para mantener tu reloj funcionando perfectamente
-
-5. Reparación de Cascos y Tela:
-   - Reparación de cascos de motocicleta y bicicleta
-   - Reparación de chaquetas, pantalones y textiles en general
-   - Restauración del acolchado interno de cascos
-   - Servicios especializados para cascos de moto y reparación de textiles
-
 PRECIOS:
 Servicios Básicos:
 - Media suela: 15€ - 25€
