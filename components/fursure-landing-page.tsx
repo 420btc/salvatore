@@ -121,14 +121,19 @@ export default function SalvatoreShoeRepairPage() {
       subtitle: 'Taller especializado en reparación de calzado. Devolvemos la vida a tus zapatos favoritos con técnicas tradicionales y materiales de primera calidad. Tu calzado en las mejores manos.',
       viewLocation: 'Ver Ubicación',
       // Services
-      servicesTitle: 'Nuestros Servicios',
+      servicesTitle: 'Servicio Reparación Zapatería',
       servicesSubtitle: 'Ofrecemos una amplia gama de servicios de reparación de calzado con más de 30 años de experiencia',
       soleRepair: 'Reparación de Suelas',
       soleRepairDesc: 'Cambio completo de suelas con materiales de alta calidad. Damos nueva vida a tu calzado favorito.',
+      soleRepairFeatures: ['Suelas de cuero y goma', 'Reparación de medias suelas', 'Garantía en todos los trabajos'],
       heelRepair: 'Reparación de Tacones',
-      heelRepairDesc: 'Arreglo y cambio de tacones de todo tipo. Recupera la comodidad y elegancia de tus zapatos.',
+      heelRepairTitle: 'Tacones Perfectos',
+      heelRepairDesc: 'Especialistas en reparación y cambio de tacones. Desde tacones altos hasta zapatos de vestir, devolvemos la elegancia a tu calzado.',
+      heelRepairFeatures: ['Tacones de aguja y plataforma', 'Cambio de puntas y tapas', 'Ajuste de altura'],
       leatherRepair: 'Reparación de Cuero',
-      leatherRepairDesc: 'Restauración profesional de cuero dañado. Técnicas tradicionales para resultados duraderos.',
+      leatherRepairTitle: 'Cuero Como Nuevo',
+      leatherRepairDesc: 'Restauramos el cuero dañado, arañazos, decoloraciones y grietas. Tu calzado recuperará su aspecto original.',
+      leatherRepairFeatures: ['Limpieza y nutrición del cuero', 'Reparación de arañazos', 'Teñido y restauración de color'],
       // Schedule
       scheduleTitle: 'Horarios de Atención',
       mondayFriday: 'Lunes a Viernes',
@@ -137,17 +142,17 @@ export default function SalvatoreShoeRepairPage() {
       afternoon: 'Tarde:',
       closed: 'Cerrado',
       sundayClosed: 'Domingos: Cerrado',
-      // Services Overview
-       servicesOverviewTitle: 'Todos Nuestros Servicios',
-       servicesOverviewSubtitle: 'Ofrecemos una amplia gama de servicios de reparación con más de 30 años de experiencia',
-       shoeRepairOverview: 'Reparación de Calzado',
-       shoeRepairOverviewDesc: 'Suelas, tacones y restauración de cuero',
-       watchRepairOverview: 'Reparación de Relojes',
-       watchRepairOverviewDesc: 'Cambio de pilas, limpieza y correas',
-       helmetFabricOverview: 'Cascos, Textiles y Cremalleras',
-       helmetFabricOverviewDesc: 'Reparación de cascos, telas y cremalleras',
-       knifeSharpeningOverview: 'Afilado de Cuchillos',
-       knifeSharpeningOverviewDesc: 'Afilado profesional de todo tipo de cuchillos',
+      // Services Overview - REMOVED
+       // servicesOverviewTitle: 'Todos Nuestros Servicios',
+       // servicesOverviewSubtitle: 'Ofrecemos una amplia gama de servicios de reparación con más de 30 años de experiencia',
+       // shoeRepairOverview: 'Reparación de Calzado',
+       // shoeRepairOverviewDesc: 'Suelas, tacones y restauración de cuero',
+       // watchRepairOverview: 'Reparación de Relojes',
+       // watchRepairOverviewDesc: 'Cambio de pilas, limpieza y correas',
+       // helmetFabricOverview: 'Cascos, Textiles y Cremalleras',
+       // helmetFabricOverviewDesc: 'Reparación de cascos, telas y cremalleras',
+       // knifeSharpeningOverview: 'Afilado de Cuchillos',
+       // knifeSharpeningOverviewDesc: 'Afilado profesional de todo tipo de cuchillos',
        // Heritage
        italianTradition: 'Tradición y Maestría Italiana',
        argentinianPassion: 'Hecho con Pasión Argentina',
@@ -165,7 +170,6 @@ export default function SalvatoreShoeRepairPage() {
        halfSoleRepair: 'Reparación de medias suelas',
        workGuarantee: 'Garantía en todos los trabajos',
        // Detailed Services
-       heelRepairTitle: 'Tacones Perfectos',
        heelRepairDetailDesc: 'Especialistas en reparación y cambio de tacones. Desde tacones altos hasta zapatos de vestir, devolvemos la elegancia a tu calzado.',
        needleHeels: 'Tacones de aguja y plataforma',
        heelTips: 'Cambio de puntas y tapas',
@@ -253,14 +257,19 @@ export default function SalvatoreShoeRepairPage() {
       subtitle: 'Specialized shoe repair workshop. We bring your favorite shoes back to life with traditional techniques and premium materials. Your footwear in the best hands.',
       viewLocation: 'View Location',
       // Services
-      servicesTitle: 'Our Services',
+      servicesTitle: 'Shoe Repair Service',
       servicesSubtitle: 'We offer a wide range of shoe repair services with over 30 years of experience',
       soleRepair: 'Sole Repair',
       soleRepairDesc: 'Complete sole replacement with high-quality materials. We give new life to your favorite footwear.',
+      soleRepairFeatures: ['Leather and rubber soles', 'Half sole repair', 'Guarantee on all work'],
       heelRepair: 'Heel Repair',
-      heelRepairDesc: 'Repair and replacement of all types of heels. Restore comfort and elegance to your shoes.',
+      heelRepairTitle: 'Perfect Heels',
+      heelRepairDesc: 'Specialists in heel repair and replacement. From high heels to dress shoes, we restore elegance to your footwear.',
+      heelRepairFeatures: ['Stiletto and platform heels', 'Tip and cap replacement', 'Height adjustment'],
       leatherRepair: 'Leather Repair',
-      leatherRepairDesc: 'Professional restoration of damaged leather. Traditional techniques for lasting results.',
+      leatherRepairTitle: 'Like New Leather',
+      leatherRepairDesc: 'We restore damaged leather, scratches, discoloration and cracks. Your footwear will recover its original appearance.',
+      leatherRepairFeatures: ['Leather cleaning and nourishment', 'Scratch repair', 'Dyeing and color restoration'],
       // Schedule
       scheduleTitle: 'Opening Hours',
       mondayFriday: 'Monday to Friday',
@@ -269,17 +278,17 @@ export default function SalvatoreShoeRepairPage() {
       afternoon: 'Afternoon:',
       closed: 'Closed',
       sundayClosed: 'Sundays: Closed',
-      // Services Overview
-       servicesOverviewTitle: 'All Our Services',
-       servicesOverviewSubtitle: 'We offer a wide range of repair services with over 30 years of experience',
-       shoeRepairOverview: 'Shoe Repair',
-       shoeRepairOverviewDesc: 'Soles, heels and leather restoration',
-       watchRepairOverview: 'Watch Repair',
-       watchRepairOverviewDesc: 'Battery change, cleaning and straps',
-       helmetFabricOverview: 'Helmets, Textiles and Zippers',
-       helmetFabricOverviewDesc: 'Helmet, fabric and zipper repair',
-       knifeSharpeningOverview: 'Knife Sharpening',
-       knifeSharpeningOverviewDesc: 'Professional sharpening of all types of knives',
+      // Services Overview - REMOVED
+       // servicesOverviewTitle: 'All Our Services',
+       // servicesOverviewSubtitle: 'We offer a wide range of repair services with over 30 years of experience',
+       // shoeRepairOverview: 'Shoe Repair',
+       // shoeRepairOverviewDesc: 'Soles, heels and leather restoration',
+       // watchRepairOverview: 'Watch Repair',
+       // watchRepairOverviewDesc: 'Battery change, cleaning and straps',
+       // helmetFabricOverview: 'Helmets, Textiles and Zippers',
+       // helmetFabricOverviewDesc: 'Helmet, fabric and zipper repair',
+       // knifeSharpeningOverview: 'Knife Sharpening',
+       // knifeSharpeningOverviewDesc: 'Professional sharpening of all types of knives',
        // Heritage
        italianTradition: 'Italian Tradition and Mastery',
        argentinianPassion: 'Made with Argentinian Passion',
@@ -297,7 +306,6 @@ export default function SalvatoreShoeRepairPage() {
        halfSoleRepair: 'Half sole repair',
        workGuarantee: 'Guarantee on all work',
        // Detailed Services
-       heelRepairTitle: 'Perfect Heels',
        heelRepairDetailDesc: 'Specialists in heel repair and replacement. From high heels to dress shoes, we restore elegance to your footwear.',
        needleHeels: 'Stiletto and platform heels',
        heelTips: 'Tip and cap replacement',
@@ -854,83 +862,7 @@ export default function SalvatoreShoeRepairPage() {
           </div>
         </section>
 
-        {/* Services Overview Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
-              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
-                {t.servicesOverviewTitle}
-              </h2>
-              <p className="mt-4 text-gray-600">
-                {t.servicesOverviewSubtitle}
-              </p>
-            </div>
-            
-            {/* Desktop Layout - 4 columns in one row */}
-            <div className="hidden md:grid gap-6 md:grid-cols-4 max-w-6xl mx-auto">
-              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
-                  <Wrench className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.shoeRepairOverview}</h3>
-                <p className="text-amber-700 leading-relaxed">{t.shoeRepairOverviewDesc}</p>
-              </div>
-              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
-                  <Clock className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.watchRepairOverview}</h3>
-                <p className="text-amber-700 leading-relaxed">{t.watchRepairOverviewDesc}</p>
-              </div>
-              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
-                  <CheckCircle className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.helmetFabricOverview}</h3>
-                <p className="text-amber-700 leading-relaxed">{t.helmetFabricOverviewDesc}</p>
-              </div>
-              <div className="flex flex-col items-center text-center p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-5 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-6 shadow-lg">
-                  <ArrowRight className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-amber-900">{t.knifeSharpeningOverview}</h3>
-                <p className="text-amber-700 leading-relaxed">{t.knifeSharpeningOverviewDesc}</p>
-              </div>
-            </div>
-
-            {/* Mobile Layout - 2x2 grid with larger cards */}
-            <div className="md:hidden grid grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
-                  <Wrench className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.shoeRepairOverview}</h3>
-                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.shoeRepairOverviewDesc}</p>
-              </div>
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
-                  <Clock className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.watchRepairOverview}</h3>
-                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.watchRepairOverviewDesc}</p>
-              </div>
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
-                  <CheckCircle className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.helmetFabricOverview}</h3>
-                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.helmetFabricOverviewDesc}</p>
-              </div>
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl shadow-2xl border border-amber-100 p-6 hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <div className="p-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full mb-4 w-fit mx-auto shadow-lg">
-                  <ArrowRight className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-base font-bold mb-3 text-amber-900 text-center">{t.knifeSharpeningOverview}</h3>
-                <p className="text-sm text-amber-700 text-center leading-relaxed">{t.knifeSharpeningOverviewDesc}</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Services Overview Section - REMOVED */}
 
         {/* Problem/Solution Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
@@ -978,9 +910,10 @@ export default function SalvatoreShoeRepairPage() {
                 {t.servicesSubtitle}
               </p>
             </div>
-            {/* Desktop Layout */}
-            <div className="hidden md:grid gap-12 md:gap-16">
-              {/* Service 1 */}
+            
+            {/* Shoe Repair Services - Desktop Layout */}
+            <div className="hidden md:grid gap-12 md:gap-16 mb-16">
+              {/* Service 1 - Sole Repair */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image
                   src="/suela.jpg"
@@ -998,21 +931,18 @@ export default function SalvatoreShoeRepairPage() {
                     {t.soleRepairDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.leatherRubberSoles}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.halfSoleRepair}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.workGuarantee}
-                    </li>
+                    {t.soleRepairFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-center">
+                        <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {feature}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
-              {/* Service 2 */}
+              
+              {/* Service 2 - Heel Repair */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="md:order-last">
+                <div className="md:order-2">
                   <Image
                     src="/tacones.jpeg"
                     alt="Reparación de Tacones"
@@ -1021,32 +951,29 @@ export default function SalvatoreShoeRepairPage() {
                     className="rounded-xl shadow-2xl mx-auto border border-gray-200"
                   />
                 </div>
-                <div>
+                <div className="md:order-1">
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> {t.heelRepair}
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.heelRepairTitle}</h3>
                   <p className="text-gray-600 mb-4">
-                    {t.heelRepairDetailDesc}
+                    {t.heelRepairDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.needleHeels}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.heelTips}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.heightAdjustment}
-                    </li>
+                    {t.heelRepairFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-center">
+                        <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {feature}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
-              {/* Service 3 */}
+              
+              {/* Service 3 - Leather Repair */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image
                   src="/cuero.jpg"
-                  alt="Restauración de Cuero"
+                  alt="Reparación de Cuero"
                   width={500}
                   height={400}
                   className="rounded-xl shadow-2xl mx-auto border border-gray-200"
@@ -1055,119 +982,104 @@ export default function SalvatoreShoeRepairPage() {
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> {t.leatherRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.leatherRestoration}</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.leatherRepairTitle}</h3>
                   <p className="text-gray-600 mb-4">
-                    {t.leatherDetailDesc}
+                    {t.leatherRepairDesc}
                   </p>
                   <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.leatherCleaning}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.scratchRepair}
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {t.colorRestoration}
-                    </li>
+                    {t.leatherRepairFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-center">
+                        <CheckCircle className="h-5 w-5 text-amber-600 mr-2" /> {feature}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
-
-            {/* Mobile Layout - 2 Columns */}
-            <div className="md:hidden grid grid-cols-2 gap-4">
+            
+            {/* Shoe Repair Services - Mobile Layout */}
+            <div className="md:hidden grid grid-cols-1 gap-6 mb-12">
               {/* Service 1 - Mobile */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
                 <Image
                   src="/suela.jpg"
                   alt="Reparación de Suelas"
-                  width={200}
-                  height={160}
-                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                  width={300}
+                  height={200}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-40 object-cover mb-4"
                 />
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.soleRepair}
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.soleRepair}</h3>
-                <p className="text-xs text-gray-600 mb-2">
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.soleRepair}</h3>
+                <p className="text-sm text-gray-600 mb-3">
                   {t.soleRepairDesc}
                 </p>
                 <ul className="space-y-1 text-xs text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.leatherRubberSoles}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.halfSoleRepair}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.workGuarantee}
-                  </li>
+                  {t.soleRepairFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                      <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {feature}
+                    </li>
+                  ))}
                 </ul>
               </div>
-
+              
               {/* Service 2 - Mobile */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
                 <Image
                   src="/tacones.jpeg"
                   alt="Reparación de Tacones"
-                  width={200}
-                  height={160}
-                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                  width={300}
+                  height={200}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-40 object-cover mb-4"
                 />
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.heelRepair}
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.heelRepairTitle}</h3>
-                <p className="text-xs text-gray-600 mb-2">
-                  {t.heelRepairDetailDesc}
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.heelRepairTitle}</h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  {t.heelRepairDesc}
                 </p>
                 <ul className="space-y-1 text-xs text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.needleHeels}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.heelTips}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.heightAdjustment}
-                  </li>
+                  {t.heelRepairFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                      <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {feature}
+                    </li>
+                  ))}
                 </ul>
               </div>
-
-              {/* Service 3 - Mobile - Spans 2 columns to center it */}
-              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
+              
+              {/* Service 3 - Mobile */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
                 <Image
                   src="/cuero.jpg"
-                  alt="Restauración de Cuero"
-                  width={200}
-                  height={160}
-                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-32 object-cover mb-3"
+                  alt="Reparación de Cuero"
+                  width={300}
+                  height={200}
+                  className="rounded-lg shadow-md mx-auto border border-gray-200 w-full h-40 object-cover mb-4"
                 />
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.leatherRepair}
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900">{t.leatherRestoration}</h3>
-                <p className="text-xs text-gray-600 mb-2">
-                  {t.leatherDetailDesc}
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.leatherRepairTitle}</h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  {t.leatherRepairDesc}
                 </p>
                 <ul className="space-y-1 text-xs text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.leatherCleaning}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.scratchRepair}
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {t.colorRestoration}
-                  </li>
+                  {t.leatherRepairFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                      <CheckCircle className="h-3 w-3 text-amber-600 mr-1" /> {feature}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
+            {/* Old services section removed - replaced with new shoe repair services above */}
           </div>
         </section>
 
         {/* Watch Repair Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+        <section className="w-full py-4 md:py-8 lg:py-12 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
               <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">
