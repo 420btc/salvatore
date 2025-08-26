@@ -1186,6 +1186,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/pilareloj.mov" type="video/mp4" />
@@ -1204,6 +1205,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/relojj.mp4" type="video/mp4" />
@@ -1222,6 +1224,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/correaa.mp4" type="video/mp4" />
@@ -1244,6 +1247,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/pilareloj.mov" type="video/mp4" />
@@ -1262,6 +1266,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/relojj.mp4" type="video/mp4" />
@@ -1280,6 +1285,7 @@ export default function SalvatoreShoeRepairPage() {
                   autoPlay
                   loop
                   muted
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/correaa.mp4" type="video/mp4" />
@@ -1310,51 +1316,132 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-green-100 rounded-full mb-4">
-                  <CheckCircle className="h-8 w-8 text-green-600" />
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="none"
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/cascoo.mov" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.helmetRepair}</h3>
+                  <p className="text-white drop-shadow-md">{t.helmetRepairDesc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.helmetRepair}</h3>
-                <p className="text-gray-600">{t.helmetRepairDesc}</p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="p-4 bg-green-100 rounded-full mb-4">
-                  <Wrench className="h-8 w-8 text-green-600" />
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px] bg-gradient-to-br from-blue-600 to-blue-800">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => console.log('Error loading video:', e)}
+                >
+                  <source src="/telax.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.fabricRepair}</h3>
+                  <p className="text-white drop-shadow-md">{t.fabricRepairDesc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.fabricRepair}</h3>
-                <p className="text-gray-600">{t.fabricRepairDesc}</p>
               </div>
-              <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                 <div className="p-4 bg-green-100 rounded-full mb-4">
-                   <ArrowRight className="h-8 w-8 text-green-600" />
-                 </div>
-                 <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.zipperRepair}</h3>
-                 <p className="text-gray-600">{t.zipperRepairDesc}</p>
-               </div>
+              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px] bg-gradient-to-br from-purple-600 to-purple-800">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => console.log('Error loading video:', e)}
+                >
+                  <source src="/cosido.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.zipperRepair}</h3>
+                  <p className="text-white drop-shadow-md">{t.zipperRepairDesc}</p>
+                </div>
+              </div>
             </div>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
-                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
-                  <CheckCircle className="h-6 w-6 text-green-600" />
+              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="none"
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/cascoo.mov" type="video/mp4" />
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.helmetRepair}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.helmetRepairDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.helmetRepair}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.helmetRepairDesc}</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4">
-                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
-                  <Wrench className="h-6 w-6 text-green-600" />
+              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => console.log('Error loading video:', e)}
+                >
+                  <source src="/telax.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.fabricRepair}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.fabricRepairDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.fabricRepair}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.fabricRepairDesc}</p>
               </div>
-              <div className="col-span-2 bg-white rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto">
-                <div className="p-3 bg-green-100 rounded-full mb-3 w-fit mx-auto">
-                  <ArrowRight className="h-6 w-6 text-green-600" />
+              <div className="col-span-2 relative rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto overflow-hidden min-h-[150px] bg-gradient-to-br from-purple-600 to-purple-800">
+                {/* Video de fondo */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => console.log('Error loading video:', e)}
+                >
+                  <source src="/cosido.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                {/* Overlay con transparencia */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                {/* Contenido sobre el video */}
+                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.zipperRepair}</h3>
+                  <p className="text-xs text-white drop-shadow-md">{t.zipperRepairDesc}</p>
                 </div>
-                <h3 className="text-sm font-bold mb-2 text-gray-900 text-center">{t.zipperRepair}</h3>
-                <p className="text-xs text-gray-600 text-center">{t.zipperRepairDesc}</p>
               </div>
             </div>
           </div>
