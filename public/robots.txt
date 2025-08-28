@@ -1,0 +1,39 @@
+# Robots.txt para Salvatore Shoes Repair
+# Optimizado para SEO
+
+User-agent: *
+Allow: /
+
+# Permitir acceso a recursos estáticos importantes
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /salvatore.png
+
+# Bloquear archivos sensibles
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://app.vercel.app/sitemap.xml
+# Nota: Actualizar la URL cuando tengas el dominio definitivo
+
+# Crawl-delay para ser respetuoso con los servidores
+Crawl-delay: 1
+
+# Configuración específica para bots principales
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
