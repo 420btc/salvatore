@@ -111,10 +111,10 @@ export default function SalvatoreShoeRepairPage() {
     es: {
       // Header
       services: 'Servicios',
-      prices: 'Precios',
+      prices: 'Servicios',
       contact: 'Contacto',
       callNow: 'Llamar Ahora',
-      requestQuote: 'Solicitar Presupuesto',
+      requestQuote: 'Solicitar Cita',
       // Hero
       badge: '✨ Más de 30 años reparando calzado en Torremolinos',
       title: 'Salvatore Shoes Repair',
@@ -205,17 +205,12 @@ export default function SalvatoreShoeRepairPage() {
        faqA4: 'No es necesario, pero recomendamos llamar antes para asegurar que podemos atenderle inmediatamente y tener el presupuesto listo.',
        faqQ5: '¿Qué formas de pago aceptan?',
        faqA5: 'Aceptamos efectivo y tarjeta. El pago se realiza al recoger el calzado una vez completada la reparación.',
-       // Prices
-        pricesTitle: 'Precios',
-        pricesSubtitle: 'Precios competitivos y transparentes para todos nuestros servicios',
+       // Services
         basicRepair: 'Reparación Básica',
-        basicRepairPrice: 'Desde 15€',
         basicRepairDesc: 'Reparaciones menores y ajustes básicos',
         advancedRepair: 'Reparación Avanzada',
-        advancedRepairPrice: 'Desde 25€',
         advancedRepairDesc: 'Cambio de suelas y reparaciones complejas',
         premiumRepair: 'Restauración Premium',
-        premiumRepairPrice: 'Desde 40€',
         premiumRepairDesc: 'Restauración completa con materiales premium',
        // Watch Repair
        watchRepairTitle: 'Reparación de Relojes',
@@ -247,10 +242,10 @@ export default function SalvatoreShoeRepairPage() {
     en: {
       // Header
       services: 'Services',
-      prices: 'Prices',
+      prices: 'Services',
       contact: 'Contact',
       callNow: 'Call Now',
-      requestQuote: 'Request Quote',
+      requestQuote: 'Book Appointment',
       // Hero
       badge: '✨ Over 30 years repairing shoes in Torremolinos',
       title: 'Salvatore Shoes Repair',
@@ -342,16 +337,11 @@ export default function SalvatoreShoeRepairPage() {
        faqQ5: 'What payment methods do you accept?',
        faqA5: 'We accept cash and card. Payment is made when picking up the footwear once the repair is completed.',
        // Prices
-        pricesTitle: 'Prices',
-        pricesSubtitle: 'Competitive and transparent prices for all our services',
         basicRepair: 'Basic Repair',
-        basicRepairPrice: 'From €15',
         basicRepairDesc: 'Minor repairs and basic adjustments',
         advancedRepair: 'Advanced Repair',
-        advancedRepairPrice: 'From €25',
         advancedRepairDesc: 'Sole replacement and complex repairs',
         premiumRepair: 'Premium Restoration',
-        premiumRepairPrice: 'From €40',
         premiumRepairDesc: 'Complete restoration with premium materials',
        // Watch Repair
        watchRepairTitle: 'Watch Repair',
@@ -808,9 +798,9 @@ export default function SalvatoreShoeRepairPage() {
         {/* Horarios Section */}
         <section className="w-full min-h-screen bg-white border-b border-gray-100 relative flex items-center">
           {/* Imagen de fondo */}
-          <div 
-            className="absolute inset-2 md:inset-4 z-0" 
-            style={{ 
+          <div
+            className="absolute inset-2 md:inset-4 z-0"
+            style={{
               borderRadius: '2rem',
               backgroundImage: 'url(/tiendagpt.png)',
               backgroundSize: 'cover',
@@ -828,7 +818,7 @@ export default function SalvatoreShoeRepairPage() {
             </div>
             <div className="max-w-2xl mx-auto">
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                   <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.mondayFriday}</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
@@ -841,7 +831,7 @@ export default function SalvatoreShoeRepairPage() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                   <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.saturday}</h4>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-center">
@@ -850,10 +840,10 @@ export default function SalvatoreShoeRepairPage() {
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-md border border-red-200">
+              <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-xl border border-red-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <p className="text-base md:text-sm font-medium text-red-700">{t.sundayClosed}</p>
               </div>
-              
+
               {/* Estado Actual de la Tienda */}
               <div className="text-center mt-6">
                 <StoreStatus t={t} />
@@ -1359,13 +1349,13 @@ export default function SalvatoreShoeRepairPage() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* Services Request Section */}
         <section id="precios" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="max-w-xl mx-auto text-center mb-12 md:mb-16">
-              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">{t.pricesTitle}</h2>
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900 font-serif italic">Nuestros Servicios</h2>
               <p className="mt-4 text-gray-600">
-                {t.pricesSubtitle}
+                Solicita una cita para obtener un presupuesto personalizado sin compromiso
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
@@ -1376,28 +1366,28 @@ export default function SalvatoreShoeRepairPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3 text-gray-600">
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.halfSole}</span>
-                      <span className="font-semibold">15€ - 25€</span>
                     </li>
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.heelChange}</span>
-                      <span className="font-semibold">8€ - 15€</span>
                     </li>
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.heelTip}</span>
-                      <span className="font-semibold">3€ - 5€</span>
                     </li>
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.basicCleaning}</span>
-                      <span className="font-semibold">5€ - 8€</span>
                     </li>
                   </ul>
                   <Button 
                     className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg"
                     onClick={() => setQuoteModalOpen(true)}
                   >
-                    Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
+                    Solicitar Cita <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -1413,28 +1403,28 @@ export default function SalvatoreShoeRepairPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3 text-gray-600">
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.fullSole}</span>
-                      <span className="font-semibold">25€ - 45€</span>
                     </li>
-                    <li className="flex justify-between items-center">
-                      <span>{t.leatherRestorationPrice}</span>
-                      <span className="font-semibold">20€ - 35€</span>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                      <span>Restauración de cuero</span>
                     </li>
-                    <li className="flex justify-between items-center">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                       <span>{t.fullDyeing}</span>
-                      <span className="font-semibold">15€ - 25€</span>
                     </li>
-                    <li className="flex justify-between items-center">
-                      <span>{t.zipperRepair}</span>
-                      <span className="font-semibold">10€ - 18€</span>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                      <span>Reparación de cremalleras</span>
                     </li>
                   </ul>
                   <Button 
                     className="w-full bg-amber-600 text-white hover:bg-amber-700 shadow-lg"
                     onClick={() => setQuoteModalOpen(true)}
                   >
-                    Solicitar Presupuesto <ArrowRight className="ml-2 h-4 w-4" />
+                    Solicitar Cita <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -1729,10 +1719,10 @@ export default function SalvatoreShoeRepairPage() {
               <div className="p-2 bg-amber-100 rounded-full">
                 <CalendarIcon className="h-6 w-6 text-amber-600" />
               </div>
-              Solicitar Presupuesto
+              Reservar Cita
             </DialogTitle>
             <DialogDescription className="text-gray-600 mt-2 text-lg">
-              Completa el formulario y te contactaremos para darte el mejor presupuesto para tu calzado.
+              Agenda tu cita para una evaluación gratuita de tu calzado y recibe un presupuesto personalizado.
             </DialogDescription>
           </DialogHeader>
           
@@ -1882,8 +1872,8 @@ export default function SalvatoreShoeRepairPage() {
               disabled={!formData.name || !formData.phone}
               className="flex-1 bg-amber-600 text-white hover:bg-amber-700 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Enviar Solicitud
-              <ArrowRight className="ml-2 h-4 w-4" />
+              Reservar Cita
+              <CalendarIcon className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </DialogContent>
