@@ -92,7 +92,7 @@ export default function RootLayout({
     "alternateName": "Salvatore Reparación de Calzado",
     "description": "Taller especializado en reparación de calzado con más de 30 años de experiencia en Torremolinos, Málaga. Reparamos suelas, tacones, cuero y todo tipo de calzado.",
     "url": baseUrl,
-    "telephone": "+34-952-38-12-34",
+    "telephone": "+34-722-53-35-30",
     "email": "info@salvatoreshoes.com",
     "address": {
       "@type": "PostalAdress",

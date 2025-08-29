@@ -191,7 +191,7 @@ export default function SalvatoreShoeRepairPage() {
        // Call to Action
        ctaTitle: '¿Listos para Darle Nueva Vida a tus Zapatos?',
        ctaSubtitle: 'Más de 30 años de experiencia nos avalan. Ven a visitarnos o llámanos para un presupuesto sin compromiso.',
-       callNowFull: 'Llamar Ahora: 952 37 46 10',
+       callNowFull: 'Llamar Ahora: 722 53 35 30',
        viewLocationCta: 'Ver Ubicación',
        // FAQ
        faqTitle: 'Preguntas Frecuentes',
@@ -322,7 +322,7 @@ export default function SalvatoreShoeRepairPage() {
        // Call to Action
        ctaTitle: 'Ready to Give New Life to Your Shoes?',
        ctaSubtitle: 'Over 30 years of experience back us up. Come visit us or call us for a no-obligation quote.',
-       callNowFull: 'Call Now: 952 37 46 10',
+       callNowFull: 'Call Now: 722 53 35 30',
        viewLocationCta: 'View Location',
        // FAQ
        faqTitle: 'Frequently Asked Questions',
@@ -590,7 +590,7 @@ export default function SalvatoreShoeRepairPage() {
                className="text-sm bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-4 py-2 font-medium border border-amber-200"
                asChild
              >
-               <a href="tel:952374610">{t.callNow}</a>
+               <a href="tel:722533530">{t.callNow}</a>
              </Button>
              <Button 
                className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg"
@@ -668,7 +668,7 @@ export default function SalvatoreShoeRepairPage() {
                   onClick={() => setMobileMenuOpen(false)}
                   asChild
                 >
-                  <a href="tel:952374610">{t.callNow}</a>
+                  <a href="tel:722533530">{t.callNow}</a>
                 </Button>
                 <Button 
                   className="text-lg bg-amber-600 text-white hover:bg-amber-700 rounded-full px-6 py-3 font-medium shadow-lg"
@@ -736,7 +736,7 @@ export default function SalvatoreShoeRepairPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-gray-600 mt-6">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>952 37 46 10</span>
+                  <span>722 53 35 30</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
@@ -1462,7 +1462,7 @@ export default function SalvatoreShoeRepairPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 shadow-xl" asChild>
-                <a href="tel:952374610">{t.callNowFull} <Phone className="ml-2 h-5 w-5" /></a>
+                <a href="tel:722533530">{t.callNowFull} <Phone className="ml-2 h-5 w-5" /></a>
               </Button>
               <Button
                 size="lg"
@@ -1571,7 +1571,7 @@ export default function SalvatoreShoeRepairPage() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>952 37 46 10</span>
+                  <span>722 53 35 30</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
@@ -1854,7 +1854,7 @@ export default function SalvatoreShoeRepairPage() {
               <div>📅 <strong>Lun-Vie:</strong> 10:00-14:00 / 18:00-20:30</div>
               <div>📅 <strong>Sábado:</strong> Descanso</div>
               <div>📅 <strong>Domingo:</strong> Cerrado</div>
-              <div>📞 <strong>Teléfono:</strong> 952 37 46 10</div>
+              <div>📞 <strong>Teléfono:</strong> 722 53 35 30</div>
             </div>
           </div>
           

@@ -144,7 +144,7 @@ export default function ContactoPage() {
               className="text-sm bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full px-4 py-2 font-medium border border-amber-200"
               asChild
             >
-              <a href="tel:952374610">Llamar Ahora</a>
+              <a href="tel:722533530">Llamar Ahora</a>
             </Button>
             <Button 
               className="text-sm bg-amber-600 text-white hover:bg-amber-700 rounded-full px-4 py-2 font-medium shadow-lg"
@@ -205,7 +205,7 @@ export default function ContactoPage() {
                   onClick={() => setMobileMenuOpen(false)}
                   asChild
                 >
-                  <a href="tel:952374610">Llamar Ahora</a>
+                  <a href="tel:722533530">Llamar Ahora</a>
                 </Button>
                 <Button 
                   className="text-lg bg-amber-600 text-white hover:bg-amber-700 rounded-full px-6 py-3 font-medium shadow-lg"
@@ -256,8 +256,8 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Teléfono</h3>
-                    <a href="tel:952374610" className="text-amber-600 hover:text-amber-700 font-medium">
-                      952 37 46 10
+                    <a href="tel:722533530" className="text-amber-600 hover:text-amber-700 font-medium">
+                722 53 35 30
                     </a>
                   </div>
                 </div>
