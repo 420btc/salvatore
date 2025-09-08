@@ -1082,124 +1082,58 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/pilareloj.mov" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.batteryChange}</h3>
-                  <p className="text-white drop-shadow-md">{t.batteryChangeDesc}</p>
-                </div>
-              </div>
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/relojj.mp4" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.watchCleaning}</h3>
-                  <p className="text-white drop-shadow-md">{t.watchCleaningDesc}</p>
-                </div>
-              </div>
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/correaa.mp4" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.strapRepair}</h3>
-                  <p className="text-white drop-shadow-md">{t.strapRepairDesc}</p>
-                </div>
-              </div>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.batteryChange}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.batteryChangeDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.watchCleaning}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.watchCleaningDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.strapRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.strapRepairDesc}</p>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Mobile Layout */}
-            <div className="md:hidden grid grid-cols-2 gap-4">
-              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/pilareloj.mov" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.batteryChange}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.batteryChangeDesc}</p>
-                </div>
-              </div>
-              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/relojj.mp4" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.watchCleaning}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.watchCleaningDesc}</p>
-                </div>
-              </div>
-              <div className="col-span-2 relative rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto overflow-hidden min-h-[150px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/correaa.mp4" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.strapRepair}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.strapRepairDesc}</p>
-                </div>
-              </div>
+            <div className="md:hidden grid grid-cols-1 gap-4">
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.batteryChange}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.batteryChangeDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.watchCleaning}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.watchCleaningDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.strapRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.strapRepairDesc}</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -1218,133 +1152,58 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/cascoo.mov" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.helmetRepair}</h3>
-                  <p className="text-white drop-shadow-md">{t.helmetRepairDesc}</p>
-                </div>
-              </div>
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px] bg-gradient-to-br from-blue-600 to-blue-800">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => console.log('Error loading video:', e)}
-                >
-                  <source src="/telax.mp4" type="video/mp4" />
-                  Tu navegador no soporta el elemento video.
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.fabricRepair}</h3>
-                  <p className="text-white drop-shadow-md">{t.fabricRepairDesc}</p>
-                </div>
-              </div>
-              <div className="relative flex flex-col items-center text-center p-6 rounded-xl shadow-lg border border-gray-100 overflow-hidden min-h-[250px] bg-gradient-to-br from-purple-600 to-purple-800">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => console.log('Error loading video:', e)}
-                >
-                  <source src="/cosido.mp4" type="video/mp4" />
-                  Tu navegador no soporta el elemento video.
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                  <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg">{t.zipperRepair}</h3>
-                  <p className="text-white drop-shadow-md">{t.zipperRepairDesc}</p>
-                </div>
-              </div>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.helmetRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.helmetRepairDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.fabricRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.fabricRepairDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-bold text-gray-900">{t.zipperRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{t.zipperRepairDesc}</p>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Mobile Layout */}
-            <div className="md:hidden grid grid-cols-2 gap-4">
-              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/cascoo.mov" type="video/mp4" />
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.helmetRepair}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.helmetRepairDesc}</p>
-                </div>
-              </div>
-              <div className="relative rounded-xl shadow-lg border border-gray-100 p-4 overflow-hidden min-h-[150px]">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => console.log('Error loading video:', e)}
-                >
-                  <source src="/telax.mp4" type="video/mp4" />
-                  Tu navegador no soporta el elemento video.
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.fabricRepair}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.fabricRepairDesc}</p>
-                </div>
-              </div>
-              <div className="col-span-2 relative rounded-xl shadow-lg border border-gray-100 p-4 max-w-sm mx-auto overflow-hidden min-h-[150px] bg-gradient-to-br from-purple-600 to-purple-800">
-                {/* Video de fondo */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => console.log('Error loading video:', e)}
-                >
-                  <source src="/cosido.mp4" type="video/mp4" />
-                  Tu navegador no soporta el elemento video.
-                </video>
-                {/* Overlay con transparencia */}
-                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                {/* Contenido sobre el video */}
-                <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                  <h3 className="text-sm font-bold mb-2 text-white drop-shadow-lg">{t.zipperRepair}</h3>
-                  <p className="text-xs text-white drop-shadow-md">{t.zipperRepairDesc}</p>
-                </div>
-              </div>
+            <div className="md:hidden grid grid-cols-1 gap-4">
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.helmetRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.helmetRepairDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.fabricRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.fabricRepairDesc}</p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-lg border border-gray-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-bold text-gray-900">{t.zipperRepair}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{t.zipperRepairDesc}</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
