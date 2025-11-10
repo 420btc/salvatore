@@ -111,7 +111,7 @@ export default function SalvatoreShoeRepairPage() {
     es: {
       // Header
       services: 'Servicios',
-      prices: 'Servicios',
+      prices: 'Precios',
       contact: 'Contacto',
       callNow: 'Llamar Ahora',
       requestQuote: 'Solicitar Cita',
@@ -1082,56 +1082,110 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.batteryChange}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/pilareloj.mov"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.batteryChange}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.batteryChangeDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.batteryChangeDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.watchCleaning}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/relojj.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.watchCleaning}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.watchCleaningDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.watchCleaningDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.strapRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/correaa.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.strapRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.strapRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.strapRepairDesc}</p>
                 </CardContent>
               </Card>
             </div>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-1 gap-4">
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.batteryChange}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/pilareloj.mov"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.batteryChange}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.batteryChangeDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.batteryChangeDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.watchCleaning}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/relojj.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.watchCleaning}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.watchCleaningDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.watchCleaningDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.strapRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/correaa.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.strapRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.strapRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.strapRepairDesc}</p>
                 </CardContent>
               </Card>
             </div>
@@ -1152,56 +1206,110 @@ export default function SalvatoreShoeRepairPage() {
             
             {/* Desktop Layout */}
             <div className="hidden md:grid gap-8 md:grid-cols-3">
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.helmetRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/cascoo.mov"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.helmetRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.helmetRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.helmetRepairDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.fabricRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/telax.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.fabricRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.fabricRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.fabricRepairDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-gray-900">{t.zipperRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/cosido.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-4 relative z-10">
+                  <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{t.zipperRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{t.zipperRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-white drop-shadow-lg">{t.zipperRepairDesc}</p>
                 </CardContent>
               </Card>
             </div>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-1 gap-4">
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.helmetRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/cascoo.mov"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.helmetRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.helmetRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.helmetRepairDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.fabricRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/telax.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.fabricRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.fabricRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.fabricRepairDesc}</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-lg border border-gray-200">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-bold text-gray-900">{t.zipperRepair}</CardTitle>
+              <Card className="shadow-lg border border-gray-200 relative overflow-hidden bg-transparent">
+                <video
+                  src="/cosido.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white drop-shadow-lg">{t.zipperRepair}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{t.zipperRepairDesc}</p>
+                <CardContent className="relative z-10">
+                  <p className="text-sm text-white drop-shadow-lg">{t.zipperRepairDesc}</p>
                 </CardContent>
               </Card>
             </div>
