@@ -1409,16 +1409,7 @@ export default function SalvatoreShoeRepairPage() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-amber-400 rounded-full blur-3xl"></div>
           </div>
 
-          <div className="absolute inset-0 opacity-5">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <defs>
-                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100" height="100" fill="url(#grid)" />
-            </svg>
-          </div>
+          {/* Eliminado patrón de cuadrícula para dejar solo el fondo marrón */}
 
           <div className="container px-4 md:px-6 text-center relative z-10">
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl font-serif italic">
@@ -1499,17 +1490,7 @@ export default function SalvatoreShoeRepairPage() {
         id="contacto"
         className="bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100 text-gray-800 relative overflow-hidden"
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="footerGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#d97706" strokeWidth="0.3" />
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#footerGrid)" />
-          </svg>
-        </div>
+        {/* Eliminado patrón de cuadrícula del footer para dejar solo el color */}
 
         {/* Floating Elements */}
         <div className="absolute inset-0 opacity-15">
