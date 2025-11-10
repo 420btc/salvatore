@@ -163,7 +163,7 @@ export default function ChatPopup() {
           className="fixed bottom-4 right-4 z-50 h-14 w-14 rounded-full bg-amber-600 hover:bg-amber-700 shadow-lg transition-all duration-300 hover:scale-110"
           size="icon"
         >
-          <MessageCircle className="h-6 w-6 text-white" />
+          <MessageCircle className="!h-9 !w-9 text-white" />
         </Button>
       )}
 
