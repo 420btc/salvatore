@@ -1493,7 +1493,7 @@ export default function SalvatoreShoeRepairPage() {
         {/* Eliminado patrón de cuadrícula del footer para dejar solo el color */}
 
         {/* Floating Elements */}
-        <div className="absolute inset-0 opacity-15">
+        <div className="absolute inset-0 opacity-15 z-0">
           <div className="absolute top-10 right-20 w-16 h-16 bg-amber-200 rounded-full blur-xl"></div>
           <div className="absolute bottom-20 left-10 w-12 h-12 bg-yellow-200 rounded-full blur-lg"></div>
         </div>
