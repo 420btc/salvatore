@@ -916,7 +916,7 @@ export default function SalvatoreShoeRepairPage() {
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> {t.soleRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.soleRepair}</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 font-serif">{t.soleRepair}</h3>
                   <p className="text-gray-600 mb-4">
                     {t.soleRepairDesc}
                   </p>
@@ -945,7 +945,7 @@ export default function SalvatoreShoeRepairPage() {
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> {t.heelRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.heelRepairTitle}</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 font-serif">{t.heelRepairTitle}</h3>
                   <p className="text-gray-600 mb-4">
                     {t.heelRepairDesc}
                   </p>
@@ -972,7 +972,7 @@ export default function SalvatoreShoeRepairPage() {
                   <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700 mb-2 shadow-md">
                     <Wrench className="inline-block h-4 w-4 mr-1" /> {t.leatherRepair}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{t.leatherRepairTitle}</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 font-serif">{t.leatherRepairTitle}</h3>
                   <p className="text-gray-600 mb-4">
                     {t.leatherRepairDesc}
                   </p>
@@ -1001,7 +1001,7 @@ export default function SalvatoreShoeRepairPage() {
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.soleRepair}
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.soleRepair}</h3>
+                <h3 className="text-lg font-bold mb-2 text-gray-900 font-serif">{t.soleRepair}</h3>
                 <p className="text-sm text-gray-600 mb-3">
                   {t.soleRepairDesc}
                 </p>
@@ -1026,7 +1026,7 @@ export default function SalvatoreShoeRepairPage() {
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.heelRepair}
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.heelRepairTitle}</h3>
+                <h3 className="text-lg font-bold mb-2 text-gray-900 font-serif">{t.heelRepairTitle}</h3>
                 <p className="text-sm text-gray-600 mb-3">
                   {t.heelRepairDesc}
                 </p>
@@ -1051,7 +1051,7 @@ export default function SalvatoreShoeRepairPage() {
                 <div className="inline-block rounded-lg bg-amber-100 px-2 py-1 text-xs font-medium text-amber-700 mb-2">
                   <Wrench className="inline-block h-3 w-3 mr-1" /> {t.leatherRepair}
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">{t.leatherRepairTitle}</h3>
+                <h3 className="text-lg font-bold mb-2 text-gray-900 font-serif">{t.leatherRepairTitle}</h3>
                 <p className="text-sm text-gray-600 mb-3">
                   {t.leatherRepairDesc}
                 </p>
