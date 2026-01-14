@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://app.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://salvatorerepair.es'
   const currentDate = new Date().toISOString()
 
   // Definir todas las rutas del sitio

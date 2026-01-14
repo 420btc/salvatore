@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from '@vercel/analytics/react'
 import "./globals.css"
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://app.vercel.app'
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://salvatorerepair.es'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -95,7 +95,7 @@ export default function RootLayout({
     "telephone": "+34-722-53-35-30",
     "email": "info@salvatoreshoes.com",
     "address": {
-      "@type": "PostalAdress",
+      "@type": "PostalAddress",
       "streetAddress": "Calle Rafael Quintana Rosado, 19",
       "addressLocality": "Torremolinos",
       "addressRegion": "Andalucía",

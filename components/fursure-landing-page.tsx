@@ -816,32 +816,34 @@ export default function SalvatoreShoeRepairPage() {
                 <h3 className="text-3xl font-bold text-white mb-0 font-serif italic drop-shadow-lg">{t.scheduleTitle}</h3>
               </div>
             </div>
-            <div className="max-w-2xl mx-auto">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                  <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.mondayFriday}</h4>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span className="text-base md:text-sm font-medium">{t.morning}</span>
-                      <span className="text-base md:text-sm font-medium">10:00 - 14:00</span>
+            <div className="max-w-4xl mx-auto">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="bg-white/95 backdrop-blur-md rounded-xl p-8 shadow-2xl border-2 border-amber-400 hover:border-amber-500 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center border-b-2 border-amber-100 pb-3">{t.mondayFriday}</h4>
+                  <div className="space-y-4 text-gray-700">
+                    <div className="flex justify-between items-center bg-amber-50/50 p-3 rounded-lg">
+                      <span className="text-lg font-bold text-amber-800">{t.morning}</span>
+                      <span className="text-xl font-bold font-mono">10:00 - 14:00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-base md:text-sm font-medium">{t.afternoon}</span>
-                      <span className="text-base md:text-sm font-medium">18:00 - 20:30</span>
+                    <div className="flex justify-between items-center bg-amber-50/50 p-3 rounded-lg">
+                      <span className="text-lg font-bold text-amber-800">{t.afternoon}</span>
+                      <span className="text-xl font-bold font-mono">18:00 - 20:30</span>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                  <h4 className="text-sm md:text-sm text-base font-medium text-gray-900 mb-3">{t.saturday}</h4>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-center">
-                      <span className="text-base md:text-sm font-medium text-red-600">DESCANSO</span>
+                <div className="bg-white/95 backdrop-blur-md rounded-xl p-8 shadow-2xl border-2 border-amber-400 hover:border-amber-500 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-center">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center border-b-2 border-amber-100 pb-3">{t.saturday}</h4>
+                  <div className="space-y-4 text-gray-700 flex-grow flex items-center justify-center">
+                    <div className="flex justify-center w-full bg-amber-50/50 p-4 rounded-lg">
+                      <span className="text-xl font-bold text-amber-800">10:30 - 13:30</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-4 p-4 bg-red-50/90 backdrop-blur-sm rounded-lg shadow-xl border border-red-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                <p className="text-base md:text-sm font-medium text-red-700">{t.sundayClosed}</p>
+              <div className="text-center mt-6 p-6 bg-red-50/95 backdrop-blur-md rounded-xl shadow-xl border-2 border-red-200 hover:border-red-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <p className="text-xl font-bold text-red-700 flex items-center justify-center gap-2">
+                  <span className="text-2xl">🚫</span> {t.sundayClosed}
+                </p>
               </div>
 
               {/* Estado Actual de la Tienda */}
